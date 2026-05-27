@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P02` — Tokens |
 | Active Phase | `P02-02` — TeamPassport (soulbound) |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D4` |
-| Last Completed Phase | `P02-01` |
-| Last Commit SHA | `a4b7616` |
+| Last Completed Phase | `P02-02` |
+| Last Commit SHA | `e00c08d` |
 | Next Directive ID | `D5` |
-| Last Updated By | `mastermind-wsl` |
-| Last Updated At | 2026-05-27T14:05Z |
+| Last Updated By | `hermes-default-wsl-executor` |
+| Last Updated At | 2026-05-27T13:45Z |
 
 ## Status Legend
 
