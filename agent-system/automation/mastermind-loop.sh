@@ -7,7 +7,7 @@ cd "$REPO_ROOT"
 INTERVAL_SECONDS="${MASTER_INTERVAL_SECONDS:-60}"
 PROMPT_FILE="${MASTER_PROMPT_FILE:-agent-system/automation/prompts/mastermind-autoloop.md}"
 LOG_DIR="agent-system/automation/logs"
-MASTER_AGENT_CMD="${MASTER_AGENT_CMD:-codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -}"
+MASTER_AGENT_CMD="${MASTER_AGENT_CMD:-codex exec --skip-git-repo-check --sandbox workspace-write --dangerously-bypass-hook-trust --json -}"
 MASTER_RUN_TIMEOUT="${MASTER_RUN_TIMEOUT:-1800}"
 mkdir -p "$LOG_DIR"
 
