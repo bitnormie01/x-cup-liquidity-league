@@ -17,8 +17,8 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P01-01 | Repo & Foundry setup | AWAITING_REVIEW | 2026-05-27 | Foundry workspace bootstrapped; report ready. |
-| P01-02 | Networks & env config | PENDING | — | |
+| P01-01 | Repo & Foundry setup | DONE | 2026-05-27 | Foundry workspace bootstrapped; Mastermind accepted. |
+| P01-02 | Networks & env config | IN_PROGRESS | — | D2 issued 2026-05-27. |
 
 ## Plan 02 — Tokens
 
