@@ -56,7 +56,10 @@ cat > "$LOCK_PATH" <<JSON
   "ttl_seconds": $LOCK_TTL_SECONDS
 }
 JSON
-git add "$LOCK_PATH"
+# LOCK_PATH lives under an ignored local-log directory; force-add only this
+# metadata file so the remote lock branch can carry ownership details without
+# making the whole automation runtime directory tracked.
+git add -f "$LOCK_PATH"
 git -c user.name="${GIT_AUTHOR_NAME:-0xJaadu}" -c user.email="${GIT_AUTHOR_EMAIL:-dumpbunny4@gmail.com}" commit -q -m "[lock] executor claim $ACTIVE_PHASE by $WORKER_ID"
 
 if git push -q "$REMOTE" "HEAD:refs/heads/$LOCK_BRANCH"; then
