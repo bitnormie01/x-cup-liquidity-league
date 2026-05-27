@@ -26,7 +26,7 @@
 |---|---|---|---|---|
 | P02-01 | DemoFanToken + DemoQuoteToken | DONE | 2026-05-27 | Mastermind accepted; fan + quote tokens implemented with faucet cooldown. |
 | P02-02 | TeamPassport (soulbound) | DONE | 2026-05-27 | Mastermind accepted; soulbound ERC-721 with mint/teamFanCount/isSupporter wired up. |
-| P02-03 | Token tests | IN_PROGRESS | — | D5 issued 2026-05-27 — fan + quote + passport unit tests with ≥ 95% line coverage. |
+| P02-03 | Token tests | AWAITING_REVIEW | 2026-05-27 | Executor report ready; fan + quote + passport unit tests pass with 100% targeted line coverage. |
 
 ## Plan 03 — Registry
 
@@ -75,10 +75,10 @@
 | Plan | Phases | Done | Remaining |
 |---|---:|---:|---:|
 | P01 | 2 | 2 | 0 |
-| P02 | 3 | 2 | 1 |
+| P02 | 3 | 3 | 0 |
 | P03 | 2 | 0 | 2 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **4** | **18** |
+| **Total** | **22** | **5** | **17** |

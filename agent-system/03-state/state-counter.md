@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P02` — Tokens |
 | Active Phase | `P02-03` — Token tests |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D5` |
-| Last Completed Phase | `P02-02` |
-| Last Commit SHA | `0cfd21c` |
+| Last Completed Phase | `P02-03` |
+| Last Commit SHA | `f096545` |
 | Next Directive ID | `D6` |
-| Last Updated By | `mastermind-wsl` |
-| Last Updated At | 2026-05-27T14:30Z |
+| Last Updated By | `hermes-default-wsl-executor` |
+| Last Updated At | 2026-05-27T13:57Z |
 
 ## Status Legend
 
