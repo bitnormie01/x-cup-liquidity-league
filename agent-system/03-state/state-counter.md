@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P02` — Tokens |
 | Active Phase | `P02-01` — DemoFanToken + DemoQuoteToken |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D3` |
-| Last Completed Phase | `P01-02` |
-| Last Commit SHA | `ee751f5` |
+| Last Completed Phase | `P02-01` |
+| Last Commit SHA | `38bc84d` |
 | Next Directive ID | `D4` |
-| Last Updated By | `mastermind-default-wsl` |
-| Last Updated At | 2026-05-27T13:35Z |
+| Last Updated By | `hermes-default-wsl-executor` |
+| Last Updated At | 2026-05-27T13:32Z |
 
 ## Status Legend
 

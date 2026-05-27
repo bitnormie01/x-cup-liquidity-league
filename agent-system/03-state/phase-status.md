@@ -24,7 +24,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P02-01 | DemoFanToken + DemoQuoteToken | IN_PROGRESS | — | D3 issued 2026-05-27. |
+| P02-01 | DemoFanToken + DemoQuoteToken | AWAITING_REVIEW | 2026-05-27 | ERC-20 fan + quote tokens implemented; report ready. |
 | P02-02 | TeamPassport (soulbound) | PENDING | — | |
 | P02-03 | Token tests | PENDING | — | |
 
@@ -75,10 +75,10 @@
 | Plan | Phases | Done | Remaining |
 |---|---:|---:|---:|
 | P01 | 2 | 2 | 0 |
-| P02 | 3 | 0 | 3 |
+| P02 | 3 | 1 | 2 |
 | P03 | 2 | 0 | 2 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **2** | **20** |
+| **Total** | **22** | **3** | **19** |
