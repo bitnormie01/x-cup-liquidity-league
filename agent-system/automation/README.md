@@ -25,6 +25,7 @@ Executor:
 - claims the distributed executor lock before work;
 - implements the active directive;
 - writes reports, state updates, commits, and pushes.
+- retries are controlled by `Active Phase Status`; existing report files do not block a revision directive such as `P03-01-v2.md`.
 
 ## Distributed lock
 

@@ -42,11 +42,6 @@ while true; do
       ;;
   esac
 
-  if [[ -f "agent-system/04-summaries/reports/${PHASE}.md" || -f "agent-system/04-summaries/reports/${PHASE}-v2.md" ]]; then
-    sleep "$INTERVAL_SECONDS"
-    continue
-  fi
-
   if ! WORKER_ID="$WORKER_ID" agent-system/automation/claim-lock.sh >/tmp/xcll-claim-$WORKER_ID.log 2>&1; then
     sleep "$INTERVAL_SECONDS"
     continue
