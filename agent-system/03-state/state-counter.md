@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P01` — Foundation |
 | Active Phase | `P01-01` — Repo & Foundry setup |
-| Active Phase Status | `PENDING` |
-| Active Directive | `D1` (seed; pending Mastermind regeneration if needed) |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D1` |
 | Last Completed Phase | none |
 | Last Commit SHA | none |
 | Next Directive ID | `D2` |
-| Last Updated By | `system-init` |
-| Last Updated At | 2026-05-26 |
+| Last Updated By | `mastermind-autoloop` |
+| Last Updated At | 2026-05-27 |
 
 ## Status Legend
 
