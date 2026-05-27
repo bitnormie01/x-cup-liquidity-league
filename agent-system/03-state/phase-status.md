@@ -17,7 +17,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P01-01 | Repo & Foundry setup | PENDING | — | |
+| P01-01 | Repo & Foundry setup | AWAITING_REVIEW | 2026-05-27 | Foundry workspace bootstrapped; report ready. |
 | P01-02 | Networks & env config | PENDING | — | |
 
 ## Plan 02 — Tokens

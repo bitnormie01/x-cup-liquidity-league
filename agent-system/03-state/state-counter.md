@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P01` — Foundation |
-| Active Phase | `P01-01` — Repo & Foundry setup |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase | `P01-02` — Networks & env config |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D1` |
-| Last Completed Phase | none |
-| Last Commit SHA | none |
+| Last Completed Phase | `P01-01` |
+| Last Commit SHA | `c98daad14a05ffdc21e234e425041edcaca27349` |
 | Next Directive ID | `D2` |
-| Last Updated By | `mastermind-autoloop` |
-| Last Updated At | 2026-05-27 |
+| Last Updated By | `executor-wsl-autoloop` |
+| Last Updated At | 2026-05-27T12:50Z |
 
 ## Status Legend
 
