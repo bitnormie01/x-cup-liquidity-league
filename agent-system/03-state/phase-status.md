@@ -24,9 +24,9 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P02-01 | DemoFanToken + DemoQuoteToken | AWAITING_REVIEW | 2026-05-27 | ERC-20 fan + quote tokens implemented; report ready. |
-| P02-02 | TeamPassport (soulbound) | PENDING | — | |
-| P02-03 | Token tests | PENDING | — | |
+| P02-01 | DemoFanToken + DemoQuoteToken | DONE | 2026-05-27 | Mastermind accepted; fan + quote tokens implemented with faucet cooldown. |
+| P02-02 | TeamPassport (soulbound) | IN_PROGRESS | — | D4 issued 2026-05-27 — soulbound ERC-721 with `mintPassport(bytes32)`. |
+| P02-03 | Token tests | PENDING | — | Will cover token + passport tests together. |
 
 ## Plan 03 — Registry
 

@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P02` — Tokens |
-| Active Phase | `P02-01` — DemoFanToken + DemoQuoteToken |
-| Active Phase Status | `AWAITING_REVIEW` |
-| Active Directive | `D3` |
+| Active Phase | `P02-02` — TeamPassport (soulbound) |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D4` |
 | Last Completed Phase | `P02-01` |
-| Last Commit SHA | `38bc84d` |
-| Next Directive ID | `D4` |
-| Last Updated By | `hermes-default-wsl-executor` |
-| Last Updated At | 2026-05-27T13:32Z |
+| Last Commit SHA | `a4b7616` |
+| Next Directive ID | `D5` |
+| Last Updated By | `mastermind-wsl` |
+| Last Updated At | 2026-05-27T14:05Z |
 
 ## Status Legend
 
