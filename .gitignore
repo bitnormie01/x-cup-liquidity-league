@@ -1,13 +1,26 @@
-# Build outputs and local secrets
+# Environment
 .env
-*.env
+.env.*
+!.env.example
+
+# Foundry
 out/
 cache/
 broadcast/
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# Node / frontend
 node_modules/
-frontend/.next/
 frontend/node_modules/
+frontend/.next/
+
+# OS
 .DS_Store
+
+# Logs
+*.log
 
 # Automation runtime files
 agent-system/automation/logs/
