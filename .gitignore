@@ -1,0 +1,14 @@
+# Build outputs and local secrets
+.env
+*.env
+out/
+cache/
+broadcast/
+node_modules/
+frontend/.next/
+frontend/node_modules/
+.DS_Store
+
+# Automation runtime files
+agent-system/automation/logs/
+agent-system/automation/locks/

@@ -1,0 +1,25 @@
+# Normalize text line endings to LF in the repo.
+# Windows host (Mastermind / Claude Code) and WSL Ubuntu (Executor / Hermes)
+# share this repo; without this, every Executor pull would churn line endings.
+* text=auto eol=lf
+
+# Explicit text types
+*.md   text eol=lf
+*.sol  text eol=lf
+*.toml text eol=lf
+*.json text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.jsx  text eol=lf
+*.css  text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+
+# Binaries
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.mp4  binary
+*.pdf  binary
