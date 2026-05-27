@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P01` — Foundation |
 | Active Phase | `P01-02` — Networks & env config |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D2` |
-| Last Completed Phase | `P01-01` |
-| Last Commit SHA | `5d49d1c` |
+| Last Completed Phase | `P01-02` |
+| Last Commit SHA | `ea7b2c6` |
 | Next Directive ID | `D3` |
-| Last Updated By | `mastermind-wsl-autoloop` |
-| Last Updated At | 2026-05-27T13:05Z |
+| Last Updated By | `hermes-default-wsl-executor` |
+| Last Updated At | 2026-05-27T13:17Z |
 
 ## Status Legend
 

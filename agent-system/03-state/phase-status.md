@@ -18,7 +18,7 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P01-01 | Repo & Foundry setup | DONE | 2026-05-27 | Foundry workspace bootstrapped; Mastermind accepted. |
-| P01-02 | Networks & env config | IN_PROGRESS | — | D2 issued 2026-05-27. |
+| P01-02 | Networks & env config | AWAITING_REVIEW | 2026-05-27 | Network config, env example, README docs, and RPC check complete. |
 
 ## Plan 02 — Tokens
 
@@ -74,11 +74,11 @@
 
 | Plan | Phases | Done | Remaining |
 |---|---:|---:|---:|
-| P01 | 2 | 0 | 2 |
+| P01 | 2 | 1 | 1 |
 | P02 | 3 | 0 | 3 |
 | P03 | 2 | 0 | 2 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **0** | **22** |
+| **Total** | **22** | **1** | **21** |

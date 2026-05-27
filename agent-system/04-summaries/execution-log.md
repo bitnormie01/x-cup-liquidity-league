@@ -14,3 +14,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-26 14:32Z | P01-01 | DONE | abc1234 | repo initialized + Foundry deps installed
 -->
 2026-05-27 12:50Z | P01-01 | DONE | c98daad | Foundry workspace bootstrapped with deps and placeholder test
+2026-05-27 13:17Z | P01-02 | DONE | ea7b2c6 | X Layer network config documented and verified
