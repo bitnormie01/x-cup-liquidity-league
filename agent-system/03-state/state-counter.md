@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P03` — Registry |
 | Active Phase | `P03-02` — Registry tests |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D8` |
-| Last Completed Phase | `P03-01` |
-| Last Commit SHA | `939fce0` |
+| Last Completed Phase | `P03-02` |
+| Last Commit SHA | `4f50739` |
 | Next Directive ID | `D9` |
-| Last Updated By | `mastermind-codex` |
-| Last Updated At | 2026-05-27T17:23Z |
+| Last Updated By | `codex-cli` |
+| Last Updated At | 2026-05-27T17:28Z |
 
 ## Status Legend
 

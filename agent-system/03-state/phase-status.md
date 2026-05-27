@@ -33,7 +33,7 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P03-01 | XCupLeagueRegistry implementation | DONE | 2026-05-27 | Mastermind accepted; registry imports fixed for current v4 remapping and existing tests pass. |
-| P03-02 | Registry tests | IN_PROGRESS | — | D8 issued 2026-05-27 — registry lifecycle, permissions, events, and custom revert coverage. |
+| P03-02 | Registry tests | AWAITING_REVIEW | 2026-05-27 | Registry lifecycle, permissions, events, and custom revert tests pass with 100% registry coverage. |
 
 ## Plan 04 — Hook
 
