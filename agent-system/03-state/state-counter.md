@@ -6,15 +6,15 @@
 
 | Field | Value |
 |---|---|
-| Active Plan | `P02` — Tokens |
-| Active Phase | `P02-03` — Token tests |
-| Active Phase Status | `AWAITING_REVIEW` |
-| Active Directive | `D5` |
+| Active Plan | `P03` — Registry |
+| Active Phase | `P03-01` — XCupLeagueRegistry implementation |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D6` |
 | Last Completed Phase | `P02-03` |
 | Last Commit SHA | `f096545` |
-| Next Directive ID | `D6` |
-| Last Updated By | `hermes-default-wsl-executor` |
-| Last Updated At | 2026-05-27T13:57Z |
+| Next Directive ID | `D7` |
+| Last Updated By | `watchdog-mastermind` |
+| Last Updated At | 2026-05-27T15:38Z |
 
 ## Status Legend
 

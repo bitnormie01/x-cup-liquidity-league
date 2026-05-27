@@ -26,13 +26,13 @@
 |---|---|---|---|---|
 | P02-01 | DemoFanToken + DemoQuoteToken | DONE | 2026-05-27 | Mastermind accepted; fan + quote tokens implemented with faucet cooldown. |
 | P02-02 | TeamPassport (soulbound) | DONE | 2026-05-27 | Mastermind accepted; soulbound ERC-721 with mint/teamFanCount/isSupporter wired up. |
-| P02-03 | Token tests | AWAITING_REVIEW | 2026-05-27 | Executor report ready; fan + quote + passport unit tests pass with 100% targeted line coverage. |
+| P02-03 | Token tests | DONE | 2026-05-27 | Mastermind accepted; fan + quote + passport unit tests pass with 100% targeted line coverage. |
 
 ## Plan 03 — Registry
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P03-01 | XCupLeagueRegistry implementation | PENDING | — | |
+| P03-01 | XCupLeagueRegistry implementation | IN_PROGRESS | — | D6 issued 2026-05-27 — standalone registry metadata + match-state implementation. |
 | P03-02 | Registry tests | PENDING | — | |
 
 ## Plan 04 — Hook
