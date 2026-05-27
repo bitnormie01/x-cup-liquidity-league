@@ -8,3 +8,12 @@ solc_version = "0.8.26"
 evm_version = "cancun"
 optimizer = true
 optimizer_runs = 200
+
+[rpc_endpoints]
+xlayer_testnet = "${XLAYER_TESTNET_RPC}"
+xlayer_mainnet = "${XLAYER_MAINNET_RPC}"
+
+# TODO(P05): confirm OKX exposes Etherscan-compatible verification endpoints before deployment verification.
+[etherscan]
+xlayer_testnet = { key = "${OKX_EXPLORER_API_KEY}", url = "https://www.okx.com/web3/explorer/xlayer-test/api", chain = 1952 }
+xlayer_mainnet = { key = "${OKX_EXPLORER_API_KEY}", url = "https://www.okx.com/web3/explorer/xlayer/api", chain = 196 }
