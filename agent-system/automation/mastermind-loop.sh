@@ -7,6 +7,8 @@ cd "$REPO_ROOT"
 INTERVAL_SECONDS="${MASTER_INTERVAL_SECONDS:-60}"
 PROMPT_FILE="${MASTER_PROMPT_FILE:-agent-system/automation/prompts/mastermind-autoloop.md}"
 LOG_DIR="agent-system/automation/logs"
+MASTER_AGENT_CMD="${MASTER_AGENT_CMD:-codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -}"
+MASTER_RUN_TIMEOUT="${MASTER_RUN_TIMEOUT:-1800}"
 mkdir -p "$LOG_DIR"
 
 notify() { agent-system/automation/notify.sh "$*"; }
@@ -47,16 +49,12 @@ while true; do
   TS="$(date -u +%Y%m%dT%H%M%SZ)"
   OUT="$LOG_DIR/mastermind-$TS.log"
   set +e
-  claude -p "$(cat "$PROMPT_FILE")" \
-    --max-turns "${CLAUDE_MAX_TURNS:-14}" \
-    --output-format json \
-    --dangerously-skip-permissions \
-    ${CLAUDE_EXTRA_ARGS:-} > "$OUT" 2>&1
+  timeout "$MASTER_RUN_TIMEOUT" bash -lc "$MASTER_AGENT_CMD" < "$PROMPT_FILE" > "$OUT" 2>&1
   CODE=$?
   set -e
 
   if [[ $CODE -ne 0 ]]; then
-    notify "Mastermind Claude Code run failed with exit $CODE. Log: $OUT"
+    notify "Mastermind run failed with exit $CODE. Log: $OUT"
     sleep "$INTERVAL_SECONDS"
     continue
   fi

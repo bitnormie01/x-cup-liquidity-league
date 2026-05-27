@@ -1,6 +1,7 @@
 # Environment
 .env
 .env.*
+.telegram.env
 !.env.example
 
 # Foundry

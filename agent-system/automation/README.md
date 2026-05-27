@@ -42,8 +42,26 @@ Each environment should have:
 - gh authenticated to the repo account
 - foundry (`forge`, `cast`)
 - tmux
-- Hermes for Executor workers
-- Claude Code for the Mastermind environment only
+- Codex CLI for Codex-based Mastermind and Executor workers
+- Hermes for legacy Executor workers, only if overriding `EXECUTOR_AGENT_CMD`
+- Claude Code for legacy Mastermind workers, only if overriding `MASTER_AGENT_CMD`
+
+## Codex agent commands
+
+By default, both loops run Codex CLI:
+
+```bash
+codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -
+```
+
+Override either role if needed:
+
+```bash
+export MASTER_AGENT_CMD='codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -'
+export EXECUTOR_AGENT_CMD='codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -'
+```
+
+The prompts under `agent-system/automation/prompts/` define the role behavior, so two Codex processes can act as separate Mastermind and Executor agents.
 
 ## Optional alert env vars
 

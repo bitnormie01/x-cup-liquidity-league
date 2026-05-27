@@ -8,6 +8,7 @@ WORKER_ID="${WORKER_ID:-$(hostname)-hermes}"
 INTERVAL_SECONDS="${EXECUTOR_INTERVAL_SECONDS:-60}"
 PROMPT_FILE="${EXECUTOR_PROMPT_FILE:-agent-system/automation/prompts/executor-autoloop.md}"
 LOG_DIR="agent-system/automation/logs"
+EXECUTOR_AGENT_CMD="${EXECUTOR_AGENT_CMD:-codex exec --skip-git-repo-check --sandbox workspace-write --ask-for-approval never --dangerously-bypass-hook-trust --json -}"
 mkdir -p "$LOG_DIR"
 
 notify() { agent-system/automation/notify.sh "$*"; }
@@ -56,9 +57,7 @@ while true; do
   OUT="$LOG_DIR/executor-${WORKER_ID}-${PHASE}-${TS}.log"
 
   set +e
-  timeout "${EXECUTOR_RUN_TIMEOUT:-5400}" hermes --yolo chat \
-    --toolsets terminal,file,skills \
-    -q "$(cat "$PROMPT_FILE")" > "$OUT" 2>&1
+  timeout "${EXECUTOR_RUN_TIMEOUT:-5400}" bash -lc "$EXECUTOR_AGENT_CMD" < "$PROMPT_FILE" > "$OUT" 2>&1
   CODE=$?
   set -e
 
