@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P03` — Registry |
-| Active Phase | `P03-01` — XCupLeagueRegistry implementation |
-| Active Phase Status | `AWAITING_REVIEW` |
-| Active Directive | `D7` |
+| Active Phase | `P03-02` — Registry tests |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D8` |
 | Last Completed Phase | `P03-01` |
 | Last Commit SHA | `939fce0` |
-| Next Directive ID | `D8` |
-| Last Updated By | `codex-cli` |
-| Last Updated At | 2026-05-27T17:20Z |
+| Next Directive ID | `D9` |
+| Last Updated By | `mastermind-codex` |
+| Last Updated At | 2026-05-27T17:23Z |
 
 ## Status Legend
 

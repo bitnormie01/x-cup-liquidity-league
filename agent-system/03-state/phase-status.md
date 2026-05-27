@@ -32,8 +32,8 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P03-01 | XCupLeagueRegistry implementation | AWAITING_REVIEW | 2026-05-27 | D7 import-path fix complete; build/fmt/test pass, awaiting Mastermind review. |
-| P03-02 | Registry tests | PENDING | — | |
+| P03-01 | XCupLeagueRegistry implementation | DONE | 2026-05-27 | Mastermind accepted; registry imports fixed for current v4 remapping and existing tests pass. |
+| P03-02 | Registry tests | IN_PROGRESS | — | D8 issued 2026-05-27 — registry lifecycle, permissions, events, and custom revert coverage. |
 
 ## Plan 04 — Hook
 
@@ -76,9 +76,9 @@
 |---|---:|---:|---:|
 | P01 | 2 | 2 | 0 |
 | P02 | 3 | 3 | 0 |
-| P03 | 2 | 0 | 2 |
+| P03 | 2 | 1 | 1 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **5** | **17** |
+| **Total** | **22** | **6** | **16** |
