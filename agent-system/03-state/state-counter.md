@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P03` — Registry |
 | Active Phase | `P03-01` — XCupLeagueRegistry implementation |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `BLOCKED` |
 | Active Directive | `D6` |
 | Last Completed Phase | `P02-03` |
-| Last Commit SHA | `f096545` |
+| Last Commit SHA | `799559d` |
 | Next Directive ID | `D7` |
-| Last Updated By | `watchdog-mastermind` |
-| Last Updated At | 2026-05-27T15:38Z |
+| Last Updated By | `hermes-default-wsl` |
+| Last Updated At | 2026-05-27T15:45Z |
 
 ## Status Legend
 
@@ -27,7 +27,7 @@
 
 ## Open Blockers
 
-(Empty until something blocks. Format: `- <phase-id> | <one-line description> | <directive-id-that-introduced-it>`)
+- P03-01 | D6 requires exact `@uniswap/v4-core/src/types/...` imports, but current remapping points `@uniswap/v4-core/` at `lib/v4-core/src/`, causing Foundry to resolve missing `lib/v4-core/src/src/types/...` paths; directive forbids remapping changes or import shape changes. | D6
 
 ## Notes
 

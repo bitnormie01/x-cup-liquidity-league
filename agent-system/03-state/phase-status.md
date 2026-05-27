@@ -32,7 +32,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P03-01 | XCupLeagueRegistry implementation | IN_PROGRESS | — | D6 issued 2026-05-27 — standalone registry metadata + match-state implementation. |
+| P03-01 | XCupLeagueRegistry implementation | BLOCKED | — | D6 import paths conflict with existing v4-core remapping; needs Mastermind decision on import vs remapping fix. |
 | P03-02 | Registry tests | PENDING | — | |
 
 ## Plan 04 — Hook
