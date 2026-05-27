@@ -32,7 +32,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P03-01 | XCupLeagueRegistry implementation | IN_PROGRESS | — | D7 issued to fix only v4 import paths for current remapping. |
+| P03-01 | XCupLeagueRegistry implementation | AWAITING_REVIEW | 2026-05-27 | D7 import-path fix complete; build/fmt/test pass, awaiting Mastermind review. |
 | P03-02 | Registry tests | PENDING | — | |
 
 ## Plan 04 — Hook

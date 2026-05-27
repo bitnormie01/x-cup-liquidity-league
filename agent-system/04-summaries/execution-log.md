@@ -19,3 +19,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-27 13:45Z | P02-02 | DONE | e00c08d | Soulbound TeamPassport ERC-721 implemented
 2026-05-27 13:57Z | P02-03 | DONE | f096545 | Token and passport unit tests added with 100% targeted line coverage
 2026-05-27 15:45Z | P03-01 | BLOCKED | 8fecb2a | Registry WIP blocked by required v4-core import paths conflicting with existing remapping
+2026-05-27 17:20Z | P03-01 | DONE | 939fce0 | Registry v4 imports fixed for existing remapping; build and tests pass

@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P03` — Registry |
 | Active Phase | `P03-01` — XCupLeagueRegistry implementation |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase Status | `AWAITING_REVIEW` |
 | Active Directive | `D7` |
-| Last Completed Phase | `P02-03` |
-| Last Commit SHA | `8fecb2a` |
+| Last Completed Phase | `P03-01` |
+| Last Commit SHA | `939fce0` |
 | Next Directive ID | `D8` |
-| Last Updated By | `mastermind-codex` |
-| Last Updated At | 2026-05-27T16:22Z |
+| Last Updated By | `codex-cli` |
+| Last Updated At | 2026-05-27T17:20Z |
 
 ## Status Legend
 
