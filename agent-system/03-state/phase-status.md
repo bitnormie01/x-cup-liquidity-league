@@ -18,13 +18,13 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P01-01 | Repo & Foundry setup | DONE | 2026-05-27 | Foundry workspace bootstrapped; Mastermind accepted. |
-| P01-02 | Networks & env config | AWAITING_REVIEW | 2026-05-27 | Network config, env example, README docs, and RPC check complete. |
+| P01-02 | Networks & env config | DONE | 2026-05-27 | Mastermind accepted; OKX verifier confirmation deferred via TODO(P05). |
 
 ## Plan 02 — Tokens
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P02-01 | DemoFanToken + DemoQuoteToken | PENDING | — | |
+| P02-01 | DemoFanToken + DemoQuoteToken | IN_PROGRESS | — | D3 issued 2026-05-27. |
 | P02-02 | TeamPassport (soulbound) | PENDING | — | |
 | P02-03 | Token tests | PENDING | — | |
 
@@ -74,11 +74,11 @@
 
 | Plan | Phases | Done | Remaining |
 |---|---:|---:|---:|
-| P01 | 2 | 1 | 1 |
+| P01 | 2 | 2 | 0 |
 | P02 | 3 | 0 | 3 |
 | P03 | 2 | 0 | 2 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **1** | **21** |
+| **Total** | **22** | **2** | **20** |
