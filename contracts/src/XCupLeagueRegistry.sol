@@ -2,8 +2,8 @@
 pragma solidity 0.8.26;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {PoolId} from "@uniswap/v4-core/src/types/PoolId.sol";
-import {Currency} from "@uniswap/v4-core/src/types/Currency.sol";
+import {PoolId} from "@uniswap/v4-core/types/PoolId.sol";
+import {Currency} from "@uniswap/v4-core/types/Currency.sol";
 
 contract XCupLeagueRegistry is Ownable {
     enum MatchState {
