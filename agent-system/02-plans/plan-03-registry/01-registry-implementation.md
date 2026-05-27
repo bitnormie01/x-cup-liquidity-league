@@ -1,7 +1,7 @@
 ---
 phase-id: P03-01
 plan: P03
-revised-on: 2026-05-26
+revised-on: 2026-05-27
 ---
 
 # P03-01 — XCupLeagueRegistry Implementation
@@ -13,7 +13,7 @@ Implement `XCupLeagueRegistry.sol`: the shared metadata store mapping teams ↔ 
 ## Scope (In)
 
 - `contracts/src/XCupLeagueRegistry.sol`:
-  - imports: `@uniswap/v4-core/src/types/PoolId.sol`, `@uniswap/v4-core/src/types/Currency.sol`, OZ `Ownable`.
+  - imports: v4 `PoolId` and `Currency`, plus OZ `Ownable`. Use the import path that matches the repository's current remapping. With `@uniswap/v4-core/` already remapped to `contracts/lib/v4-core/src/`, the expected paths are `@uniswap/v4-core/types/PoolId.sol` and `@uniswap/v4-core/types/Currency.sol`.
   - enum:
     ```solidity
     enum MatchState { PRE_MATCH, LIVE_NORMAL, GOAL_SHOCK, RED_CARD, PENALTY, FINAL_WHISTLE }
