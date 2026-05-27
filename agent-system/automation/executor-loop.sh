@@ -8,7 +8,7 @@ WORKER_ID="${WORKER_ID:-$(hostname)-hermes}"
 INTERVAL_SECONDS="${EXECUTOR_INTERVAL_SECONDS:-60}"
 PROMPT_FILE="${EXECUTOR_PROMPT_FILE:-agent-system/automation/prompts/executor-autoloop.md}"
 LOG_DIR="agent-system/automation/logs"
-EXECUTOR_AGENT_CMD="${EXECUTOR_AGENT_CMD:-codex exec --skip-git-repo-check --sandbox workspace-write --dangerously-bypass-hook-trust --json -}"
+EXECUTOR_AGENT_CMD="${EXECUTOR_AGENT_CMD:-codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --dangerously-bypass-hook-trust --json -}"
 mkdir -p "$LOG_DIR"
 
 notify() { agent-system/automation/notify.sh "$*"; }

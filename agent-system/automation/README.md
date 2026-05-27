@@ -51,14 +51,14 @@ Each environment should have:
 By default, both loops run Codex CLI:
 
 ```bash
-codex exec --skip-git-repo-check --sandbox workspace-write --dangerously-bypass-hook-trust --json -
+codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --dangerously-bypass-hook-trust --json -
 ```
 
 Override either role if needed:
 
 ```bash
-export MASTER_AGENT_CMD='codex exec --skip-git-repo-check --sandbox workspace-write --dangerously-bypass-hook-trust --json -'
-export EXECUTOR_AGENT_CMD='codex exec --skip-git-repo-check --sandbox workspace-write --dangerously-bypass-hook-trust --json -'
+export MASTER_AGENT_CMD='codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --dangerously-bypass-hook-trust --json -'
+export EXECUTOR_AGENT_CMD='codex exec --skip-git-repo-check --dangerously-bypass-approvals-and-sandbox --dangerously-bypass-hook-trust --json -'
 ```
 
 The prompts under `agent-system/automation/prompts/` define the role behavior, so two Codex processes can act as separate Mastermind and Executor agents.
