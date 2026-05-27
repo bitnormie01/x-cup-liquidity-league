@@ -11,7 +11,7 @@
 | Active Phase Status | `BLOCKED` |
 | Active Directive | `D6` |
 | Last Completed Phase | `P02-03` |
-| Last Commit SHA | `799559d` |
+| Last Commit SHA | `8fecb2a` |
 | Next Directive ID | `D7` |
 | Last Updated By | `hermes-default-wsl` |
 | Last Updated At | 2026-05-27T15:45Z |
