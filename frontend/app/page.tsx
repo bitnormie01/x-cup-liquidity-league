@@ -1,20 +1,15 @@
+import { ContractProofPanel } from '@/components/ContractProofPanel';
+import { EventLog } from '@/components/EventLog';
 import { FaucetPanel } from '@/components/FaucetPanel';
 import { Leaderboard } from '@/components/Leaderboard';
 import { LiquidityPanel } from '@/components/LiquidityPanel';
+import { MatchStateSimulator } from '@/components/MatchStateSimulator';
 import { NetworkBadge } from '@/components/NetworkBadge';
 import { PassportCard } from '@/components/PassportCard';
 import { SwapPanel } from '@/components/SwapPanel';
 import { WalletButton } from '@/components/WalletButton';
 import { xLayerExplorerUrl } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
-
-const placeholders = [
-  {
-    title: 'Match-State Simulator + Event Log',
-    phase: 'P06-05',
-    detail: 'Admin match-state controls and recent league events.',
-  },
-];
 
 export default function Home() {
   return (
@@ -97,17 +92,12 @@ export default function Home() {
           <LiquidityPanel />
         </section>
 
-        <section className="grid gap-4">
-          {placeholders.map((item) => (
-            <article key={item.title} className="rounded-lg border border-line bg-white p-5 shadow-panel">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-pitch text-sm font-semibold text-white">
-                {item.phase.slice(-2)}
-              </div>
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-neutral-600">{item.detail}</p>
-            </article>
-          ))}
+        <section className="grid gap-4 xl:grid-cols-2">
+          <MatchStateSimulator />
+          <EventLog />
         </section>
+
+        <ContractProofPanel />
 
         <footer className="flex flex-col gap-2 border-t border-line py-5 text-sm text-neutral-600 sm:flex-row sm:items-center sm:justify-between">
           <span>xUSD, BRA, ARG, FRA, and GER deployments are loaded for chain 1952.</span>
