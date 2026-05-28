@@ -22,8 +22,36 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
     uint24 public constant MAX_FEE_BPS = 200;
     uint24 public constant PASSPORT_DISCOUNT_BPS = 5;
     uint24 public constant WASH_PENALTY_BPS = 25;
+    uint256 public constant POINT_UNIT = 1e18;
+    uint256 public constant LP_POINT_UNIT = 1e18;
+    uint256 public constant LP_WEIGHT_BPS = 15000;
+    uint256 public constant LOYALTY_MULTIPLIER_BPS = 12000;
+    uint256 public constant DEFAULT_MULTIPLIER_BPS = 10000;
 
     mapping(XCupLeagueRegistry.MatchState => uint24) public feeForState;
+    mapping(bytes32 => TeamScore) public scores;
+    mapping(address => mapping(bytes32 => UserContribution)) public contributions;
+
+    enum PointSource {
+        SWAP,
+        LIQUIDITY,
+        BONUS,
+        PENALTY
+    }
+
+    struct TeamScore {
+        uint256 swapPoints;
+        uint256 lpPoints;
+        uint256 totalPoints;
+        uint64 lastUpdatedAt;
+    }
+
+    struct UserContribution {
+        uint256 swapPoints;
+        uint256 lpPoints;
+        uint256 totalPoints;
+        uint64 lastActionAt;
+    }
 
     struct FeeBreakdown {
         uint24 baseFeeBps;
@@ -34,6 +62,7 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
 
     error FeeOutOfRange(uint24 feeBps);
     error HookNotImplemented();
+    error CallerNotPoolManager();
 
     event DynamicFeeApplied(
         PoolId indexed poolId,
@@ -45,6 +74,23 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         uint24 penaltyBps,
         uint24 finalFeeBps
     );
+
+    event TeamPointsAwarded(
+        PoolId indexed poolId,
+        bytes32 indexed teamId,
+        address indexed user,
+        PointSource source,
+        uint256 rawAmount,
+        uint256 multiplierBps,
+        uint256 points
+    );
+
+    modifier onlyPoolManager() {
+        if (msg.sender != address(poolManager)) {
+            revert CallerNotPoolManager();
+        }
+        _;
+    }
 
     constructor(IPoolManager _pm, XCupLeagueRegistry _registry, TeamPassport _passport, address _owner)
         Ownable(_owner)
@@ -88,6 +134,14 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         feeForState[state] = feeBps;
     }
 
+    function getTeamScore(bytes32 teamId) external view returns (TeamScore memory) {
+        return scores[teamId];
+    }
+
+    function getUserContribution(address user, bytes32 teamId) external view returns (UserContribution memory) {
+        return contributions[user][teamId];
+    }
+
     function beforeInitialize(address, PoolKey calldata, uint160) external pure returns (bytes4) {
         revert HookNotImplemented();
     }
@@ -111,7 +165,7 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         BalanceDelta delta,
         BalanceDelta feesAccrued,
         bytes calldata hookData
-    ) external pure returns (bytes4, BalanceDelta) {
+    ) external onlyPoolManager returns (bytes4, BalanceDelta) {
         return _afterAddLiquidity(sender, key, params, delta, feesAccrued, hookData);
     }
 
@@ -140,7 +194,7 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         PoolKey calldata key,
         IPoolManager.SwapParams calldata params,
         bytes calldata hookData
-    ) external returns (bytes4, BeforeSwapDelta, uint24) {
+    ) external onlyPoolManager returns (bytes4, BeforeSwapDelta, uint24) {
         return _beforeSwap(sender, key, params, hookData);
     }
 
@@ -150,7 +204,7 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         IPoolManager.SwapParams calldata params,
         BalanceDelta delta,
         bytes calldata hookData
-    ) external pure returns (bytes4, int128) {
+    ) external onlyPoolManager returns (bytes4, int128) {
         return _afterSwap(sender, key, params, delta, hookData);
     }
 
@@ -187,24 +241,79 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
             (IHooks.beforeSwap.selector, BeforeSwapDeltaLibrary.ZERO_DELTA, finalFee | LPFeeLibrary.OVERRIDE_FEE_FLAG);
     }
 
-    function _afterSwap(address, PoolKey calldata, IPoolManager.SwapParams calldata, BalanceDelta, bytes calldata)
-        internal
-        pure
-        returns (bytes4, int128)
-    {
-        // TODO(P04-02): implement swap scoring.
+    /// @dev MVP scoring uses absolute `amountSpecified` as normalized volume; quote-aware normalization is deferred.
+    function _afterSwap(
+        address sender,
+        PoolKey calldata key,
+        IPoolManager.SwapParams calldata params,
+        BalanceDelta,
+        bytes calldata hookData
+    ) internal returns (bytes4, int128) {
+        PoolId poolId = key.toId();
+        if (!registry.isRegisteredPool(poolId)) {
+            return (IHooks.afterSwap.selector, int128(0));
+        }
+
+        address user = _resolveUser(sender, hookData);
+        bytes32 teamId = registry.getTeamByPool(poolId);
+
+        uint256 normalizedVolume = _absInt256(params.amountSpecified);
+        uint256 loyaltyMult = passport.isSupporter(user, teamId) ? LOYALTY_MULTIPLIER_BPS : DEFAULT_MULTIPLIER_BPS;
+        uint256 washMult = DEFAULT_MULTIPLIER_BPS; // TODO(P04-03): replace with anti-wash multiplier.
+        // forge-lint: disable-next-line(divide-before-multiply)
+        uint256 points = (normalizedVolume * loyaltyMult / 10_000) * washMult / 10_000 / POINT_UNIT;
+
+        TeamScore storage ts = scores[teamId];
+        ts.swapPoints += points;
+        ts.totalPoints += points;
+        ts.lastUpdatedAt = uint64(block.timestamp);
+
+        UserContribution storage uc = contributions[user][teamId];
+        uc.swapPoints += points;
+        uc.totalPoints += points;
+        uc.lastActionAt = uint64(block.timestamp);
+
+        emit TeamPointsAwarded(poolId, teamId, user, PointSource.SWAP, normalizedVolume, loyaltyMult, points);
+
         return (IHooks.afterSwap.selector, int128(0));
     }
 
+    /// @dev MVP scoring normalizes positive `liquidityDelta` directly to points.
     function _afterAddLiquidity(
-        address,
-        PoolKey calldata,
-        IPoolManager.ModifyLiquidityParams calldata,
+        address sender,
+        PoolKey calldata key,
+        IPoolManager.ModifyLiquidityParams calldata params,
         BalanceDelta,
         BalanceDelta,
-        bytes calldata
-    ) internal pure returns (bytes4, BalanceDelta) {
-        // TODO(P04-02): implement LP scoring.
+        bytes calldata hookData
+    ) internal returns (bytes4, BalanceDelta) {
+        PoolId poolId = key.toId();
+        if (!registry.isRegisteredPool(poolId)) {
+            return (IHooks.afterAddLiquidity.selector, BalanceDeltaLibrary.ZERO_DELTA);
+        }
+        if (params.liquidityDelta <= 0) {
+            return (IHooks.afterAddLiquidity.selector, BalanceDeltaLibrary.ZERO_DELTA);
+        }
+
+        address user = _resolveUser(sender, hookData);
+        bytes32 teamId = registry.getTeamByPool(poolId);
+
+        // forge-lint: disable-next-line(unsafe-typecast)
+        uint256 normalizedLiquidity = uint256(params.liquidityDelta);
+        uint256 points = normalizedLiquidity * LP_WEIGHT_BPS / 10_000 / LP_POINT_UNIT;
+
+        TeamScore storage ts = scores[teamId];
+        ts.lpPoints += points;
+        ts.totalPoints += points;
+        ts.lastUpdatedAt = uint64(block.timestamp);
+
+        UserContribution storage uc = contributions[user][teamId];
+        uc.lpPoints += points;
+        uc.totalPoints += points;
+        uc.lastActionAt = uint64(block.timestamp);
+
+        emit TeamPointsAwarded(poolId, teamId, user, PointSource.LIQUIDITY, normalizedLiquidity, LP_WEIGHT_BPS, points);
+
         return (IHooks.afterAddLiquidity.selector, BalanceDeltaLibrary.ZERO_DELTA);
     }
 
@@ -214,6 +323,16 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         }
 
         return sender;
+    }
+
+    function _absInt256(int256 v) internal pure returns (uint256) {
+        if (v < 0) {
+            // forge-lint: disable-next-line(unsafe-typecast)
+            return uint256(-v);
+        }
+
+        // forge-lint: disable-next-line(unsafe-typecast)
+        return uint256(v);
     }
 
     function _computeFee(uint24 base, uint24 discount, uint24 penalty) internal pure returns (uint24) {
