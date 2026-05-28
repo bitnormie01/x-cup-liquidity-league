@@ -49,8 +49,8 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P05-01 | Deploy scripts | DONE | 2026-05-28 | Mastermind accepted; deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests verified. |
-| P05-02 | Pool creation + seed liquidity | AWAITING_REVIEW | 2026-05-28 | Executor completed pool creation, registry registration, seed liquidity, anvil E2E, one post-seed swap, and 61/61 tests; awaiting Mastermind review. |
-| P05-03 | Testnet deploy + verify | PENDING | — | |
+| P05-02 | Pool creation + seed liquidity | DONE | 2026-05-28 | Mastermind accepted; pool creation, registry registration, seed liquidity, anvil E2E, one post-seed swap, and 61/61 tests verified. |
+| P05-03 | Testnet deploy + verify | BLOCKED | — | Missing deployment env/private key; deployer address and X Layer testnet OKB balance cannot be checked. |
 
 ## Plan 06 — Frontend
 
