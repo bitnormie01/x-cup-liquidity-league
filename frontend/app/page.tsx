@@ -17,8 +17,18 @@ export default function Home() {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-5 py-6 sm:px-8 lg:px-10">
         <header className="grid gap-6 border-b border-line pb-7 lg:grid-cols-[1fr_auto] lg:items-start">
           <div>
-            <div className="mb-3 inline-flex rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
-              Start Here
+            <div className="mb-5 flex items-center gap-3">
+              <img
+                src="/brand/xcl-logo.svg"
+                alt="X Cup Liquidity League logo"
+                className="h-16 w-16 rounded-xl border border-yellow-300/70 bg-neutral-950 object-cover shadow-panel sm:h-20 sm:w-20"
+              />
+              <div>
+                <div className="inline-flex rounded-md border border-emerald-300 bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
+                  Start Here
+                </div>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-neutral-500">XCL on X Layer</p>
+              </div>
             </div>
             <h1 className="max-w-3xl text-4xl font-semibold tracking-normal text-okx sm:text-5xl">
               X Cup Liquidity League
