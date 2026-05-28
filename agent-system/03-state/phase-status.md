@@ -48,7 +48,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P05-01 | Deploy scripts | IN_PROGRESS | — | D12 issued 2026-05-28 — CREATE2 salt mining, anvil pre-flight required. |
+| P05-01 | Deploy scripts | AWAITING_REVIEW | 2026-05-28 | Executor completed deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests; awaiting Mastermind review. |
 | P05-02 | Pool creation + seed liquidity | PENDING | — | |
 | P05-03 | Testnet deploy + verify | PENDING | — | |
 
@@ -78,7 +78,7 @@
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
 | P04 | 4 | 3 + 1 skipped | 0 |
-| P05 | 3 | 0 | 3 |
+| P05 | 3 | 1 | 2 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **10 + 1 skipped** | **11** |
+| **Total** | **22** | **11 + 1 skipped** | **10** |

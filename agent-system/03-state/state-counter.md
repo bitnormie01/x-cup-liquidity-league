@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P05` — Deployment |
-| Active Phase | `P05-01` — Deploy scripts |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase | `P05-02` — Pool creation + seed liquidity |
+| Active Phase Status | `AWAITING_DIRECTIVE` |
 | Active Directive | `D12` |
-| Last Completed Phase | `P04-03` |
-| Last Commit SHA | `8c0ef1c` |
+| Last Completed Phase | `P05-01` |
+| Last Commit SHA | `6d93f43` |
 | Next Directive ID | `D13` |
-| Last Updated By | `mastermind-claude` |
-| Last Updated At | 2026-05-28T04:05Z |
+| Last Updated By | `executor-codex` |
+| Last Updated At | 2026-05-28T04:13Z |
 
 ## Mastermind Note — P04-04 skipped
 
