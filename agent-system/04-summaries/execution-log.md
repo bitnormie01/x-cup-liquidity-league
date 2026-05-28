@@ -23,3 +23,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-27 17:28Z | P03-02 | DONE | 4f50739 | Registry lifecycle tests added with 100% registry coverage
 2026-05-28 03:07Z | P04-01 | DONE | 59f05a8 | Hook scaffold and beforeSwap dynamic fee callback added
 2026-05-28 03:34Z | P04-02 | DONE | cb0fb26 | Hook swap and LP scoring callbacks added with PoolManager gate
+2026-05-28 03:48Z | P04-03 | DONE | TBD | Anti-wash cooldown reversal and burst logic added

@@ -41,7 +41,7 @@
 |---|---|---|---|---|
 | P04-01 | Hook scaffold + beforeSwap dynamic fee | DONE | 2026-05-28 | Mastermind accepted; IHooks direct impl (no BaseHook in installed v4), override flag wired, 43 tests pass repo-wide. |
 | P04-02 | afterSwap + afterAddLiquidity scoring | DONE | 2026-05-28 | Mastermind accepted; onlyPoolManager gate live on 3 wrappers, scoring math matches D10, 10 new tests pass, 53/53 repo-wide. |
-| P04-03 | Anti-wash logic | IN_PROGRESS | — | D11 issued 2026-05-28 — cooldown/reversal/burst detection + WashPenaltyApplied. |
+| P04-03 | Anti-wash logic | AWAITING_REVIEW | 2026-05-28 | Executor completed cooldown/reversal/burst detection, fee penalty, wash multiplier, preview, and tests; awaiting Mastermind review. |
 | P04-04 | Hook tests (full) | PENDING | — | |
 
 ## Plan 05 — Deployment
@@ -77,8 +77,8 @@
 | P01 | 2 | 2 | 0 |
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
-| P04 | 4 | 2 | 2 |
+| P04 | 4 | 3 | 1 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **9** | **13** |
+| **Total** | **22** | **10** | **12** |
