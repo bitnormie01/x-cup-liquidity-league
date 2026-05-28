@@ -11,7 +11,7 @@
 | Active Phase Status | `AWAITING_DIRECTIVE` |
 | Active Directive | `D10` |
 | Last Completed Phase | `P04-02` |
-| Last Commit SHA | `TBD` |
+| Last Commit SHA | `cb0fb26` |
 | Next Directive ID | `D11` |
 | Last Updated By | `executor-codex` |
 | Last Updated At | 2026-05-28T03:34Z |
