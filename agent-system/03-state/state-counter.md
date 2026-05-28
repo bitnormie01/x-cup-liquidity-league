@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P04` — Hook |
 | Active Phase | `P04-03` — Anti-wash logic |
-| Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D10` |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D11` |
 | Last Completed Phase | `P04-02` |
-| Last Commit SHA | `cb0fb26` |
-| Next Directive ID | `D11` |
-| Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T03:34Z |
+| Last Commit SHA | `8d7c3b2` |
+| Next Directive ID | `D12` |
+| Last Updated By | `mastermind-claude` |
+| Last Updated At | 2026-05-28T03:55Z |
 
 ## Status Legend
 
