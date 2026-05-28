@@ -6,15 +6,15 @@
 
 | Field | Value |
 |---|---|
-| Active Plan | `P03` — Registry |
-| Active Phase | `P03-02` — Registry tests |
-| Active Phase Status | `AWAITING_REVIEW` |
-| Active Directive | `D8` |
+| Active Plan | `P04` — Hook |
+| Active Phase | `P04-01` — Hook scaffold + beforeSwap dynamic fee |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D9` |
 | Last Completed Phase | `P03-02` |
-| Last Commit SHA | `4f50739` |
-| Next Directive ID | `D9` |
-| Last Updated By | `codex-cli` |
-| Last Updated At | 2026-05-27T17:28Z |
+| Last Commit SHA | `760c270` |
+| Next Directive ID | `D10` |
+| Last Updated By | `mastermind-claude` |
+| Last Updated At | 2026-05-28T00:00Z |
 
 ## Status Legend
 

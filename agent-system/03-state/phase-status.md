@@ -33,13 +33,13 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P03-01 | XCupLeagueRegistry implementation | DONE | 2026-05-27 | Mastermind accepted; registry imports fixed for current v4 remapping and existing tests pass. |
-| P03-02 | Registry tests | AWAITING_REVIEW | 2026-05-27 | Registry lifecycle, permissions, events, and custom revert tests pass with 100% registry coverage. |
+| P03-02 | Registry tests | DONE | 2026-05-27 | Mastermind accepted; 21 tests pass, 100% line/branch/func/statement coverage; no source changes needed. |
 
 ## Plan 04 — Hook
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P04-01 | Hook scaffold + beforeSwap dynamic fee | PENDING | — | |
+| P04-01 | Hook scaffold + beforeSwap dynamic fee | IN_PROGRESS | — | D9 issued 2026-05-28 — Hook is the core product. |
 | P04-02 | afterSwap + afterAddLiquidity scoring | PENDING | — | |
 | P04-03 | Anti-wash logic | PENDING | — | |
 | P04-04 | Hook tests (full) | PENDING | — | |
@@ -76,9 +76,9 @@
 |---|---:|---:|---:|
 | P01 | 2 | 2 | 0 |
 | P02 | 3 | 3 | 0 |
-| P03 | 2 | 1 | 1 |
+| P03 | 2 | 2 | 0 |
 | P04 | 4 | 0 | 4 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **6** | **16** |
+| **Total** | **22** | **7** | **15** |
