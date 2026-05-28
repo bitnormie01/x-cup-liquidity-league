@@ -9,12 +9,12 @@
 | Active Plan | `P06` — Frontend |
 | Active Phase | `P06-04` — Swap + LP panels |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D19` |
+| Active Directive | `D20` |
 | Last Completed Phase | `P06-03` |
-| Last Commit SHA | `b0cc836` |
-| Next Directive ID | `D20` |
+| Last Commit SHA | `fd7922f` |
+| Next Directive ID | `D21` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T09:49Z |
+| Last Updated At | 2026-05-28T10:05Z |
 
 ## Mastermind Note — P04-04 skipped
 
