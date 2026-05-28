@@ -16,6 +16,7 @@ contracts/broadcast/
 node_modules/
 frontend/node_modules/
 frontend/.next/
+frontend/.next
 
 # OS
 .DS_Store
