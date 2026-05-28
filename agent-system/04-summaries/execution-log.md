@@ -34,3 +34,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-28 09:30Z | P06-02 | DONE | 9d9ecd9 | Hook contribution frontend read fixed to use contributions mapping getter
 2026-05-28 09:49Z | P06-03 | DONE | b0cc836 | Live leaderboard and team cards added with 5-second polling and screenshot
 2026-05-28 10:05Z | P06-03 | DONE | fd7922f | Match-state color mapping fixed per D20
+2026-05-28 10:25Z | P06-04 | DONE | 8200548 | Swap and liquidity panels added with helper approve/call flows and screenshots

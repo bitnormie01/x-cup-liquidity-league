@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P06` — Frontend |
-| Active Phase | `P06-04` — Swap + LP panels |
+| Active Phase | `P06-05` — Match-state sim + event log |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D20` |
-| Last Completed Phase | `P06-03` |
-| Last Commit SHA | `fd7922f` |
-| Next Directive ID | `D21` |
+| Active Directive | `D21` |
+| Last Completed Phase | `P06-04` |
+| Last Commit SHA | `8200548` |
+| Next Directive ID | `D22` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T10:05Z |
+| Last Updated At | 2026-05-28T10:25Z |
 
 ## Mastermind Note — P04-04 skipped
 
