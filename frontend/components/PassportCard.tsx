@@ -9,7 +9,7 @@ import { xcupHookAbi } from '@/lib/abis/xcup-hook';
 import { xLayerTestnet } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 import { getTeamById, teams, type Team } from '@/lib/teams';
-import { TeamSelector } from './TeamSelector';
+import { TeamLogo, TeamSelector } from './TeamSelector';
 
 const ZERO_BIGINT = BigInt(0);
 
@@ -111,7 +111,7 @@ export function PassportCard() {
   if (!isConnected) {
     return (
       <PassportShell>
-        <EmptyState title="Connect wallet to mint a Team Passport" detail="Your passport will lock in one supporter team for the demo." />
+        <EmptyState title="Connect wallet to pick a team" detail="Your passport locks one supporter team for this demo." />
       </PassportShell>
     );
   }
@@ -132,16 +132,16 @@ export function PassportCard() {
         <div className="rounded-md border border-emerald-300 bg-emerald-50 p-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <p className="text-sm font-semibold text-emerald-800">Minted Team Passport</p>
+              <p className="text-sm font-semibold text-emerald-800">Your Team Passport is minted</p>
               <div className="mt-2 flex items-center gap-3">
-                <span className="text-3xl" aria-hidden="true">
-                  {mintedTeam.flag}
-                </span>
+                <TeamLogo symbol={mintedTeam.symbol} size="lg" />
                 <div>
                   <h3 className="text-lg font-semibold text-okx">
-                    {mintedTeam.symbol} - {mintedTeam.name}
+                    {mintedTeam.name}
                   </h3>
-                  <p className="text-sm text-neutral-700">Token ID {tokenId?.toString() ?? '--'}</p>
+                  <p className="text-sm text-neutral-700">
+                    {mintedTeam.symbol} passport #{tokenId?.toString() ?? '--'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -159,7 +159,6 @@ export function PassportCard() {
 
         <div className="rounded-md border border-line bg-[#fbfcfa] p-3 text-sm text-neutral-700">
           <p>Wallet: {address ? shortAddress(address) : '--'}</p>
-          <p>Team ID: {shortAddress(mintedTeam.teamId)}</p>
           <p>
             Last action:{' '}
             {normalizedContribution.lastActionAt > ZERO_BIGINT
@@ -216,9 +215,9 @@ function PassportShell({ children }: { children: ReactNode }) {
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="border-b border-line pb-4">
-        <h2 className="text-xl font-semibold">Team Passport</h2>
+        <h2 className="text-xl font-semibold">Pick Your Team</h2>
         <p className="mt-1 text-sm text-neutral-600">
-          Mint one soulbound passport to join a team for the league.
+          Mint one soulbound passport so your swaps and support count for that team.
         </p>
       </div>
       <div className="mt-4 flex flex-col gap-4">{children}</div>

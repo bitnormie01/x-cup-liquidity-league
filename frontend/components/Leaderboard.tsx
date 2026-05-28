@@ -1,6 +1,7 @@
 'use client';
 
-import { PoolIdLink, TeamCard, MatchStateBadge } from '@/components/TeamCard';
+import { MatchStateBadge, TeamCard } from '@/components/TeamCard';
+import { TeamLogo } from '@/components/TeamSelector';
 import { formatFee, formatPoints, useLeagueData } from '@/lib/use-league-data';
 
 export function Leaderboard() {
@@ -11,9 +12,9 @@ export function Leaderboard() {
       <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
         <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-xl font-semibold">Leaderboard</h2>
+            <h2 className="text-xl font-semibold">Live League</h2>
             <p className="mt-1 text-sm text-neutral-600">
-              Live team rankings from hook scores, passport fan counts, and registry match state.
+              Team rankings update from swaps, liquidity support, fan passports, and match state.
             </p>
           </div>
           <span className="w-fit rounded-md bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
@@ -41,18 +42,15 @@ export function Leaderboard() {
 
         {!isLoading && !isError && rows.length > 0 ? (
           <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
+            <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
               <thead>
                 <tr className="text-xs uppercase text-neutral-500">
                   <Th>Rank</Th>
                   <Th>Team</Th>
-                  <Th align="right">Total Points</Th>
-                  <Th align="right">Swap Points</Th>
-                  <Th align="right">LP Points</Th>
+                  <Th align="right">Points</Th>
                   <Th align="right">Fans</Th>
-                  <Th>Match State</Th>
-                  <Th>Active Fee</Th>
-                  <Th>Pool / Explorer</Th>
+                  <Th>Status</Th>
+                  <Th>Current Fee</Th>
                 </tr>
               </thead>
               <tbody>
@@ -65,9 +63,7 @@ export function Leaderboard() {
                     </Td>
                     <Td>
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl" aria-hidden="true">
-                          {team.flag}
-                        </span>
+                        <TeamLogo symbol={team.symbol} size="sm" />
                         <div>
                           <p className="font-semibold">{team.symbol}</p>
                           <p className="text-xs text-neutral-600">{team.name}</p>
@@ -75,16 +71,11 @@ export function Leaderboard() {
                       </div>
                     </Td>
                     <Td align="right">{formatPoints(team.totalPoints)}</Td>
-                    <Td align="right">{formatPoints(team.swapPoints)}</Td>
-                    <Td align="right">{formatPoints(team.lpPoints)}</Td>
                     <Td align="right">{formatPoints(team.fanCount)}</Td>
                     <Td>
                       <MatchStateBadge team={team} />
                     </Td>
                     <Td>{formatFee(team.activeFeeBps)}</Td>
-                    <Td>
-                      <PoolIdLink team={team} />
-                    </Td>
                   </tr>
                 ))}
               </tbody>

@@ -14,6 +14,9 @@ X Cup Liquidity League turns pool activity into live team support. Judges can cl
 - [P06-05 match-state simulator](agent-system/04-summaries/screenshots/P06-05-match-state.png)
 - [P06-05 event log](agent-system/04-summaries/screenshots/P06-05-event-log.png)
 - [P06-05 contract proof](agent-system/04-summaries/screenshots/P06-05-contract-proof.png)
+- [D26 homepage refactor](agent-system/04-summaries/screenshots/D26-home-refactor.png)
+- [D26 play flow](agent-system/04-summaries/screenshots/D26-play-flow.png)
+- [D26 proof section](agent-system/04-summaries/screenshots/D26-proof-section.png)
 
 ## Product
 
@@ -33,7 +36,7 @@ flowchart TD
   Hook --> Registry
   Hook --> Passport
   Hook --> Scores[Team scores and user contributions]
-  Frontend --> Explorer[OKX Explorer links]
+  Frontend --> Explorer[OKLink links]
 ```
 
 ## Hook Callbacks
@@ -44,20 +47,20 @@ flowchart TD
 
 ## X Layer Testnet Deployment
 
-Explorer base: `https://www.okx.com/web3/explorer/xlayer-test`
+Explorer base: `https://www.oklink.com/x-layer-testnet`
 
 | Artifact | Address / ID | Explorer |
 |---|---|---|
-| xUSD | `0x89AD049BbeD753E9213970Ea7F0727f85825e262` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x89AD049BbeD753E9213970Ea7F0727f85825e262) |
-| BRA | `0xC03713D4B186A2f762A6b301b8F805739a671bb3` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0xC03713D4B186A2f762A6b301b8F805739a671bb3) |
-| ARG | `0x28b1F6d00177F6565310e9849aC1fe27FD6781d4` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x28b1F6d00177F6565310e9849aC1fe27FD6781d4) |
-| FRA | `0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB) |
-| GER | `0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32) |
-| PoolManager | `0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5) |
-| XCupLeagueRegistry | `0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50) |
-| TeamPassport | `0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358) |
-| XCupLiquidityLeagueHook | `0xea906F6E7D63D96E4D6782b6260a7a11587144c0` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0xea906F6E7D63D96E4D6782b6260a7a11587144c0) |
-| LiquiditySeeder / V4PoolActionHelper | `0x693c37af40d21c5c0B4b34151a234D69919F1407` | [address](https://www.okx.com/web3/explorer/xlayer-test/address/0x693c37af40d21c5c0B4b34151a234D69919F1407) |
+| xUSD | `0x89AD049BbeD753E9213970Ea7F0727f85825e262` | [address](https://www.oklink.com/x-layer-testnet/address/0x89AD049BbeD753E9213970Ea7F0727f85825e262) |
+| BRA | `0xC03713D4B186A2f762A6b301b8F805739a671bb3` | [address](https://www.oklink.com/x-layer-testnet/address/0xC03713D4B186A2f762A6b301b8F805739a671bb3) |
+| ARG | `0x28b1F6d00177F6565310e9849aC1fe27FD6781d4` | [address](https://www.oklink.com/x-layer-testnet/address/0x28b1F6d00177F6565310e9849aC1fe27FD6781d4) |
+| FRA | `0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB` | [address](https://www.oklink.com/x-layer-testnet/address/0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB) |
+| GER | `0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32` | [address](https://www.oklink.com/x-layer-testnet/address/0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32) |
+| PoolManager | `0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5` | [address](https://www.oklink.com/x-layer-testnet/address/0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5) |
+| XCupLeagueRegistry | `0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50` | [address](https://www.oklink.com/x-layer-testnet/address/0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50) |
+| TeamPassport | `0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358` | [address](https://www.oklink.com/x-layer-testnet/address/0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358) |
+| XCupLiquidityLeagueHook | `0xea906F6E7D63D96E4D6782b6260a7a11587144c0` | [address](https://www.oklink.com/x-layer-testnet/address/0xea906F6E7D63D96E4D6782b6260a7a11587144c0) |
+| LiquiditySeeder / V4PoolActionHelper | `0x693c37af40d21c5c0B4b34151a234D69919F1407` | [address](https://www.oklink.com/x-layer-testnet/address/0x693c37af40d21c5c0B4b34151a234D69919F1407) |
 | BRA/xUSD pool ID | `0xac226e1ee3a5d5b56d33dbb8760019d5f2d59635bed752085d705ce2bece4380` | Pool ID |
 | ARG/xUSD pool ID | `0xc59461cd61690d3b48635a550962c7f9491530eb4c181c435e51ba6c03c8f9cd` | Pool ID |
 | FRA/xUSD pool ID | `0xa2a46908c90ebf39ed2f12938d0e29b5b3f4a94f09281ea9f99fc860368b65c8` | Pool ID |
@@ -70,7 +73,7 @@ Deployment manifests are committed under `deployments/1952/` and `deployments/xl
 - Network: X Layer testnet
 - Chain ID: `1952`
 - RPC: `https://testrpc.xlayer.tech/terigon`
-- Explorer: `https://www.okx.com/web3/explorer/xlayer-test`
+- Explorer: `https://www.oklink.com/x-layer-testnet`
 - Native token: OKB
 
 No canonical X Layer testnet Uniswap v4 PoolManager was confirmed during deployment, so this MVP uses a clearly disclosed project-owned PoolManager on testnet.
@@ -120,6 +123,7 @@ Do not commit private keys, `.env` files, or local `deployments/31337/` artifact
 - Demo tokens have no monetary value.
 - One Team Passport per wallet; no team switching in the MVP.
 - Project-owned PoolManager is used on X Layer testnet.
+- Browser Add Support is disabled in the final UX because wallet simulation can fail on the MVP liquidity-settlement path; seeded LP proof remains visible on-chain.
 - Explorer verification remains best-effort/pending.
 - Manual browser-wallet demo testing is still needed before final video recording.
 - Event log uses bounded recent-block polling because the public X Layer testnet RPC limits `eth_getLogs` ranges.

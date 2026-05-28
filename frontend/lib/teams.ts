@@ -5,7 +5,6 @@ import { deployments, type TeamSymbol } from './deployments';
 export type Team = {
   symbol: TeamSymbol;
   name: string;
-  flag: string;
   teamId: Hex;
   token: Address;
   poolId: Hex;
@@ -13,17 +12,9 @@ export type Team = {
   currency1: Address;
 };
 
-const flagBySymbol: Record<TeamSymbol, string> = {
-  BRA: '🇧🇷',
-  ARG: '🇦🇷',
-  FRA: '🇫🇷',
-  GER: '🇩🇪',
-};
-
 export const teams = deployments.teams.map((team) => ({
   symbol: team.symbol,
   name: team.name,
-  flag: flagBySymbol[team.symbol],
   teamId: team.teamId,
   token: team.token,
   poolId: team.poolId,

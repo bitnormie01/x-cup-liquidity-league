@@ -38,3 +38,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-28 10:40Z | P06-05 | DONE | 4d2cc59 | Match-state simulator, event log, and contract proof panels added
 2026-05-28 12:48Z | P07-01 | DONE | de41da9 | DEMO.md and submission-ready README added
 2026-05-28 13:01Z | P07-02 | PARTIAL | f48d447 | Media package prepared; video and X post URLs still need human publication
+2026-05-28 14:19Z | D26 | AWAITING_REVIEW | pending | Frontend UX hotfix refactored demo flow, migrated OKLink links, disabled unsafe Add Support, and refreshed screenshots

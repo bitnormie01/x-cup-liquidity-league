@@ -67,7 +67,8 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P07-01 | Demo path + README | DONE | 2026-05-28 | Mastermind accepted; DEMO.md and submission-ready README added with walkthrough, screenshots, architecture, addresses, setup, limitations, and placeholders. |
-| P07-02 | X account + demo video | PARTIAL | 2026-05-28 | Media package prepared, but demo video upload, X post publication, X account handle, and hosted frontend URL still require human action. |
+| P07-02 | X account + demo video | PARTIAL | 2026-05-28 | Media package prepared, but demo video upload, X post publication, X account handle, and hosted frontend URL still require human action. D26 hotfix submitted before final submission continuation. |
+| D26 | Frontend UX hotfix | AWAITING_REVIEW | 2026-05-28 | Normal-user demo flow refactored, OKLink migration applied, CSS team badges added, unsafe browser Add Support disabled, validation passed, and D26 screenshots captured. |
 | P07-03 | Final submission form | PENDING | — | |
 
 ## Rollup

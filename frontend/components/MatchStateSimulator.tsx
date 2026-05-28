@@ -95,9 +95,9 @@ export function MatchStateSimulator() {
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-semibold">Match-State Simulator</h2>
+          <h2 className="text-xl font-semibold">Admin Demo Controls</h2>
           <p className="mt-1 text-sm text-neutral-600">
-            Controller-only demo control for registry match states.
+            Controller or owner wallets can change a team state for the live demo.
           </p>
         </div>
         <span className="w-fit rounded-md bg-neutral-100 px-3 py-1 text-sm font-semibold text-neutral-700">

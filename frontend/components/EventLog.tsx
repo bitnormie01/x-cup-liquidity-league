@@ -6,7 +6,7 @@ import { usePublicClient } from 'wagmi';
 
 import { xcupHookAbi } from '@/lib/abis/xcup-hook';
 import { xcupRegistryAbi } from '@/lib/abis/xcup-registry';
-import { xLayerExplorerUrl, xLayerTestnet } from '@/lib/chains';
+import { xLayerExplorerName, xLayerExplorerUrl, xLayerTestnet } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 import { getMatchStateMeta } from '@/lib/match-states';
 import { teams } from '@/lib/teams';
@@ -100,10 +100,10 @@ export function EventLog() {
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h2 className="text-xl font-semibold">Event Log</h2>
+          <div>
+          <h2 className="text-xl font-semibold">Live Activity</h2>
           <p className="mt-1 text-sm text-neutral-600">
-            Recent hook and registry events from a bounded polling window.
+            Recent score, fee, anti-wash, and match-state events from X Layer testnet.
           </p>
         </div>
         <span className="w-fit rounded-md bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
@@ -151,7 +151,7 @@ export function EventLog() {
                 rel="noreferrer"
                 target="_blank"
               >
-                Tx {shortAddress(event.txHash)}
+                {xLayerExplorerName} {shortAddress(event.txHash)}
               </a>
             </article>
           ))}

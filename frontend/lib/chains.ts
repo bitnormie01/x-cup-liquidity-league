@@ -10,11 +10,12 @@ export const xLayerTestnet = {
   },
   blockExplorers: {
     default: {
-      name: 'OKX Explorer',
-      url: 'https://www.okx.com/web3/explorer/xlayer-test',
+      name: 'OKLink',
+      url: 'https://www.oklink.com/x-layer-testnet',
     },
   },
   testnet: true,
 } as const satisfies Chain;
 
 export const xLayerExplorerUrl = xLayerTestnet.blockExplorers.default.url;
+export const xLayerExplorerName = xLayerTestnet.blockExplorers.default.name;

@@ -1,4 +1,4 @@
-import { xLayerExplorerUrl, xLayerTestnet } from '@/lib/chains';
+import { xLayerExplorerName, xLayerExplorerUrl, xLayerTestnet } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 
 const tokenRows = [
@@ -22,9 +22,9 @@ export function ContractProofPanel() {
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-semibold">Contract Proof</h2>
+          <h2 className="text-xl font-semibold">Proof / Technical Details</h2>
           <p className="mt-1 text-sm text-neutral-600">
-            Deployed X Layer testnet contracts and pool IDs for judge verification.
+            Deployed X Layer testnet contracts, pool IDs, and explorer links for verification.
           </p>
         </div>
         <span className="w-fit rounded-md bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
@@ -38,6 +38,7 @@ export function ContractProofPanel() {
           <dl className="mt-3 grid gap-3">
             <ProofMetric label="Name" value={xLayerTestnet.name} />
             <ProofMetric label="Chain ID" value={String(deployments.chainId)} />
+            <ProofMetric label="Explorer" value={xLayerExplorerName} />
           </dl>
           <div className="mt-4 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm leading-6 text-amber-950">
             P05-03 did not confirm a canonical X Layer testnet Uniswap v4 PoolManager, so this

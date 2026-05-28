@@ -18,8 +18,8 @@ import {
   getInputSymbol,
   getInputToken,
   getOutputSymbol,
-  getSqrtPriceLimitX96,
   getSwapZeroForOne,
+  getSqrtPriceLimitX96,
   type SwapDirection,
 } from '@/lib/pools';
 import { teams, type Team } from '@/lib/teams';
@@ -98,13 +98,17 @@ export function SwapPanel() {
     }
   }, [isSuccess, refetchTokenReads]);
 
+  useEffect(() => {
+    setTransactionKind('swap');
+  }, [amount, direction, selectedTeam.symbol]);
+
   return (
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-semibold">Swap</h2>
+          <h2 className="text-xl font-semibold">Support With a Swap</h2>
           <p className="mt-1 text-sm text-neutral-600">
-            Exact-input swaps through the deployed V4PoolActionHelper.
+            Swap xUSD into a team token, or swap back, and watch the league react.
           </p>
         </div>
         <span className="w-fit rounded-md bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-800">
@@ -144,9 +148,9 @@ export function SwapPanel() {
 
         <div className="grid gap-3 text-sm text-neutral-700 sm:grid-cols-2">
           <Readout label={`${inputSymbol} balance`} value={`${formatToken(balance, decimals)} ${inputSymbol}`} />
-          <Readout label="Helper allowance" value={`${formatToken(allowance, decimals)} ${inputSymbol}`} />
-          <Readout label="Output side" value={outputSymbol} />
-          <Readout label="Direction" value={zeroForOne ? 'currency0 -> currency1' : 'currency1 -> currency0'} />
+          <Readout label="Approved for helper" value={`${formatToken(allowance, decimals)} ${inputSymbol}`} />
+          <Readout label="You send" value={inputSymbol} />
+          <Readout label="You receive" value={outputSymbol} />
         </div>
 
         {!hasBalance && hasValidAmount ? (
@@ -159,7 +163,7 @@ export function SwapPanel() {
           <button
             type="button"
             disabled={isDisabled}
-            className="rounded-md bg-okx px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-400"
+            className="min-h-11 min-w-40 rounded-md bg-okx px-4 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-400"
             onClick={() => {
               if (!parsedAmount) {
                 return;
@@ -195,10 +199,12 @@ export function SwapPanel() {
               });
             }}
           >
-            {buttonLabel({ hasAllowance, isWalletPending, isConfirming, transactionKind })}
+            {buttonLabel({ hasAllowance, inputSymbol, isWalletPending, isConfirming, outputSymbol, transactionKind })}
           </button>
           <StatusText
             hash={hash}
+            hasAllowance={hasAllowance}
+            inputSymbol={inputSymbol}
             kind={transactionKind}
             isSuccess={isSuccess}
             isError={isReceiptError}
@@ -298,6 +304,8 @@ function Readout({ label, value }: { label: string; value: string }) {
 
 function StatusText({
   hash,
+  hasAllowance,
+  inputSymbol,
   kind,
   isSuccess,
   isError,
@@ -305,6 +313,8 @@ function StatusText({
   isReading,
 }: {
   hash?: Hex;
+  hasAllowance: boolean;
+  inputSymbol: string;
   kind: TransactionKind;
   isSuccess: boolean;
   isError: boolean;
@@ -312,7 +322,14 @@ function StatusText({
   isReading: boolean;
 }) {
   if (isSuccess) {
-    return <p className="text-sm text-emerald-700">{kind === 'approve' ? 'Approval confirmed' : 'Swap confirmed'}</p>;
+    if (kind === 'approve') {
+      return (
+        <p className="text-sm text-emerald-700">
+          {hasAllowance ? 'Approval ready. Press Swap next.' : 'Approval confirmed. Refreshing allowance.'}
+        </p>
+      );
+    }
+    return <p className="text-sm text-emerald-700">Swap confirmed. League data will refresh shortly.</p>;
   }
   if (isError || errorMessage) {
     return <p className="max-w-xl text-sm text-red-700">{errorMessage ?? 'Transaction failed'}</p>;
@@ -323,18 +340,22 @@ function StatusText({
   if (isReading) {
     return <p className="text-sm text-neutral-600">Refreshing balance and allowance</p>;
   }
-  return <p className="text-sm text-neutral-600">Approve first if needed, then swap.</p>;
+  return <p className="text-sm text-neutral-600">{hasAllowance ? 'Ready to swap.' : `Approve ${inputSymbol} first.`}</p>;
 }
 
 function buttonLabel({
   hasAllowance,
+  inputSymbol,
   isWalletPending,
   isConfirming,
+  outputSymbol,
   transactionKind,
 }: {
   hasAllowance: boolean;
+  inputSymbol: string;
   isWalletPending: boolean;
   isConfirming: boolean;
+  outputSymbol: string;
   transactionKind: TransactionKind;
 }) {
   if (isWalletPending) {
@@ -343,7 +364,7 @@ function buttonLabel({
   if (isConfirming) {
     return transactionKind === 'approve' ? 'Approving' : 'Swapping';
   }
-  return hasAllowance ? 'Swap' : 'Approve helper';
+  return hasAllowance ? `Swap to ${outputSymbol}` : `Approve ${inputSymbol}`;
 }
 
 function parseTokenAmount(value: string, decimals: number) {

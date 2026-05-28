@@ -38,9 +38,9 @@ export function FaucetPanel() {
     <section className="rounded-lg border border-line bg-white p-5 shadow-panel">
       <div className="flex flex-col gap-2 border-b border-line pb-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-semibold">Faucet</h2>
+          <h2 className="text-xl font-semibold">Get Demo Tokens</h2>
           <p className="mt-1 text-sm text-neutral-600">
-            Claim demo xUSD and team tokens for the connected wallet.
+            Claim free testnet tokens for the walkthrough. These tokens have no real value.
           </p>
         </div>
         <span className="w-fit rounded-md bg-neutral-100 px-3 py-1 text-sm font-semibold text-neutral-700">
@@ -144,8 +144,8 @@ function FaucetTokenRow({ token, isWrongNetwork }: { token: FaucetToken; isWrong
           {isCooldownActive
             ? `Available in ${formatDuration(cooldownRemaining)}`
             : isConnected
-              ? 'Ready to claim'
-              : 'Connect wallet to claim'}
+              ? 'Ready'
+              : 'Connect wallet first'}
         </p>
         {isReading && isConnected ? <p className="text-xs text-neutral-500">Refreshing reads</p> : null}
       </div>

@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P07` — Submission |
-| Active Phase | `P07-02` — X account + demo video |
-| Active Phase Status | `PARTIAL` |
-| Active Directive | `D24` |
+| Active Phase | `FRONTEND-HOTFIX` — D26 frontend UX hotfix |
+| Active Phase Status | `AWAITING_REVIEW` |
+| Active Directive | `D26` |
 | Last Completed Phase | `P07-01` |
-| Last Commit SHA | `f48d447` |
-| Next Directive ID | `D25` |
+| Last Commit SHA | `pending` |
+| Next Directive ID | `D27` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T13:01Z |
+| Last Updated At | 2026-05-28T14:19Z |
 
 ## Mastermind Note — P04-04 skipped
 
