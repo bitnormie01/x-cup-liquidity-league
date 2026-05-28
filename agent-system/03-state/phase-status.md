@@ -57,8 +57,8 @@
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
 | P06-01 | Next.js + wallet + network | DONE | 2026-05-28 | Mastermind accepted; frontend shell bootstrapped with Next.js, TypeScript, Tailwind, wagmi/viem, X Layer badge, deployment manifest display, build/dev validation, and screenshot. |
-| P06-02 | Faucet + passport UI | AWAITING_REVIEW | 2026-05-28 | Faucet rows, TeamPassport minting, team selector, minted passport state, hook contribution display, build/dev validation, and screenshot complete. |
-| P06-03 | Leaderboard + team cards | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D18. |
+| P06-02 | Faucet + passport UI | AWAITING_REVIEW | 2026-05-28 | D18 fix applied: hook contribution read now calls contributions(address,bytes32); build/dev validation passed. |
+| P06-03 | Leaderboard + team cards | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D19. |
 | P06-04 | Swap + LP panels | PENDING | — | |
 | P06-05 | Match-state sim + event log | PENDING | — | |
 

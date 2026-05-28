@@ -9,12 +9,12 @@
 | Active Plan | `P06` — Frontend |
 | Active Phase | `P06-03` — Leaderboard + team cards |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D17` |
+| Active Directive | `D18` |
 | Last Completed Phase | `P06-02` |
-| Last Commit SHA | `3793eb2` |
-| Next Directive ID | `D18` |
+| Last Commit SHA | `9d9ecd9` |
+| Next Directive ID | `D19` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T09:21Z |
+| Last Updated At | 2026-05-28T09:30Z |
 
 ## Mastermind Note — P04-04 skipped
 
