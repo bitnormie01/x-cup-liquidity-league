@@ -27,16 +27,29 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
     uint256 public constant LP_WEIGHT_BPS = 15000;
     uint256 public constant LOYALTY_MULTIPLIER_BPS = 12000;
     uint256 public constant DEFAULT_MULTIPLIER_BPS = 10000;
+    uint64 public constant ANTI_WASH_COOLDOWN_SEC = 60;
+    uint64 public constant ANTI_WASH_REVERSAL_SEC = 180;
+    uint64 public constant ANTI_WASH_BURST_WINDOW_SEC = 600;
+    uint32 public constant ANTI_WASH_BURST_MAX_SWAPS = 5;
 
     mapping(XCupLeagueRegistry.MatchState => uint24) public feeForState;
     mapping(bytes32 => TeamScore) public scores;
     mapping(address => mapping(bytes32 => UserContribution)) public contributions;
+    mapping(address => mapping(PoolId => UserPoolActivity)) public userPoolActivity;
 
     enum PointSource {
         SWAP,
         LIQUIDITY,
         BONUS,
         PENALTY
+    }
+
+    enum WashReason {
+        NONE,
+        COOLDOWN,
+        REVERSAL,
+        BURST,
+        LOW_VALUE_SPAM
     }
 
     struct TeamScore {
@@ -51,6 +64,21 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         uint256 lpPoints;
         uint256 totalPoints;
         uint64 lastActionAt;
+    }
+
+    struct UserPoolActivity {
+        uint64 lastSwapAt;
+        uint64 windowStartAt;
+        uint32 swapsInWindow;
+        bool lastZeroForOne;
+        uint256 lastAmountAbs;
+    }
+
+    struct AntiWashStatus {
+        bool isFlagged;
+        WashReason reason;
+        uint24 penaltyBps;
+        uint16 pointsMultiplierBps;
     }
 
     struct FeeBreakdown {
@@ -83,6 +111,15 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         uint256 rawAmount,
         uint256 multiplierBps,
         uint256 points
+    );
+
+    event WashPenaltyApplied(
+        PoolId indexed poolId,
+        bytes32 indexed teamId,
+        address indexed user,
+        WashReason reason,
+        uint24 feePenaltyBps,
+        uint256 timestamp
     );
 
     modifier onlyPoolManager() {
@@ -140,6 +177,15 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
 
     function getUserContribution(address user, bytes32 teamId) external view returns (UserContribution memory) {
         return contributions[user][teamId];
+    }
+
+    function previewAntiWash(address user, PoolId poolId, IPoolManager.SwapParams calldata params)
+        external
+        view
+        returns (AntiWashStatus memory)
+    {
+        UserPoolActivity memory activity = userPoolActivity[user][poolId];
+        return _computeStatus(activity, uint64(block.timestamp), params);
     }
 
     function beforeInitialize(address, PoolKey calldata, uint160) external pure returns (bytes4) {
@@ -219,7 +265,7 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
     function _beforeSwap(
         address sender,
         PoolKey calldata key,
-        IPoolManager.SwapParams calldata,
+        IPoolManager.SwapParams calldata params,
         bytes calldata hookData
     ) internal returns (bytes4, BeforeSwapDelta, uint24) {
         PoolId poolId = key.toId();
@@ -230,9 +276,12 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         bytes32 teamId = registry.getTeamByPool(poolId);
         XCupLeagueRegistry.MatchState state = registry.getMatchStateByPool(poolId);
         address user = _resolveUser(sender, hookData);
+
+        AntiWashStatus memory preview = _computeStatus(userPoolActivity[user][poolId], uint64(block.timestamp), params);
+
         uint24 base = feeForState[state];
-        uint24 discount = passport.isSupporter(user, teamId) ? PASSPORT_DISCOUNT_BPS : 0;
-        uint24 penalty = 0; // TODO(P04-03): apply anti-wash penalty.
+        uint24 discount = (!preview.isFlagged && passport.isSupporter(user, teamId)) ? PASSPORT_DISCOUNT_BPS : 0;
+        uint24 penalty = preview.penaltyBps;
         uint24 finalFee = _computeFee(base, discount, penalty);
 
         emit DynamicFeeApplied(poolId, teamId, user, state, base, discount, penalty, finalFee);
@@ -257,9 +306,11 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         address user = _resolveUser(sender, hookData);
         bytes32 teamId = registry.getTeamByPool(poolId);
 
+        AntiWashStatus memory status = _updateAntiWashState(user, poolId, params);
+
         uint256 normalizedVolume = _absInt256(params.amountSpecified);
         uint256 loyaltyMult = passport.isSupporter(user, teamId) ? LOYALTY_MULTIPLIER_BPS : DEFAULT_MULTIPLIER_BPS;
-        uint256 washMult = DEFAULT_MULTIPLIER_BPS; // TODO(P04-03): replace with anti-wash multiplier.
+        uint256 washMult = uint256(status.pointsMultiplierBps);
         // forge-lint: disable-next-line(divide-before-multiply)
         uint256 points = (normalizedVolume * loyaltyMult / 10_000) * washMult / 10_000 / POINT_UNIT;
 
@@ -274,6 +325,10 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         uc.lastActionAt = uint64(block.timestamp);
 
         emit TeamPointsAwarded(poolId, teamId, user, PointSource.SWAP, normalizedVolume, loyaltyMult, points);
+
+        if (status.isFlagged) {
+            emit WashPenaltyApplied(poolId, teamId, user, status.reason, status.penaltyBps, block.timestamp);
+        }
 
         return (IHooks.afterSwap.selector, int128(0));
     }
@@ -315,6 +370,66 @@ contract XCupLiquidityLeagueHook is IHooks, Ownable {
         emit TeamPointsAwarded(poolId, teamId, user, PointSource.LIQUIDITY, normalizedLiquidity, LP_WEIGHT_BPS, points);
 
         return (IHooks.afterAddLiquidity.selector, BalanceDeltaLibrary.ZERO_DELTA);
+    }
+
+    function _computeStatus(UserPoolActivity memory activity, uint64 nowTs, IPoolManager.SwapParams calldata params)
+        internal
+        pure
+        returns (AntiWashStatus memory status)
+    {
+        // forge-lint: disable-next-line(unsafe-typecast)
+        uint16 defaultMultiplierBps = uint16(uint256(DEFAULT_MULTIPLIER_BPS));
+
+        if (activity.lastSwapAt == 0) {
+            return AntiWashStatus({
+                isFlagged: false, reason: WashReason.NONE, penaltyBps: 0, pointsMultiplierBps: defaultMultiplierBps
+            });
+        }
+
+        uint64 delta = nowTs - activity.lastSwapAt;
+
+        if (delta < ANTI_WASH_COOLDOWN_SEC) {
+            return AntiWashStatus({
+                isFlagged: true, reason: WashReason.COOLDOWN, penaltyBps: WASH_PENALTY_BPS, pointsMultiplierBps: 0
+            });
+        }
+
+        if (delta < ANTI_WASH_REVERSAL_SEC && params.zeroForOne != activity.lastZeroForOne) {
+            return AntiWashStatus({
+                isFlagged: true, reason: WashReason.REVERSAL, penaltyBps: WASH_PENALTY_BPS, pointsMultiplierBps: 0
+            });
+        }
+
+        bool windowExpired = nowTs - activity.windowStartAt >= ANTI_WASH_BURST_WINDOW_SEC;
+        if (!windowExpired && activity.swapsInWindow + 1 > ANTI_WASH_BURST_MAX_SWAPS) {
+            return AntiWashStatus({
+                isFlagged: true, reason: WashReason.BURST, penaltyBps: WASH_PENALTY_BPS, pointsMultiplierBps: 0
+            });
+        }
+
+        return AntiWashStatus({
+            isFlagged: false, reason: WashReason.NONE, penaltyBps: 0, pointsMultiplierBps: defaultMultiplierBps
+        });
+    }
+
+    function _updateAntiWashState(address user, PoolId poolId, IPoolManager.SwapParams calldata params)
+        internal
+        returns (AntiWashStatus memory status)
+    {
+        UserPoolActivity storage activity = userPoolActivity[user][poolId];
+        uint64 nowTs = uint64(block.timestamp);
+        status = _computeStatus(activity, nowTs, params);
+
+        if (activity.windowStartAt == 0 || nowTs - activity.windowStartAt >= ANTI_WASH_BURST_WINDOW_SEC) {
+            activity.windowStartAt = nowTs;
+            activity.swapsInWindow = 1;
+        } else if (activity.swapsInWindow < type(uint32).max) {
+            activity.swapsInWindow += 1;
+        }
+
+        activity.lastSwapAt = nowTs;
+        activity.lastZeroForOne = params.zeroForOne;
+        activity.lastAmountAbs = _absInt256(params.amountSpecified);
     }
 
     function _resolveUser(address sender, bytes calldata hookData) internal pure returns (address) {
