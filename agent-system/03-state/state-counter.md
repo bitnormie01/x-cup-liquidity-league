@@ -6,15 +6,15 @@
 
 | Field | Value |
 |---|---|
-| Active Plan | `P06` — Frontend |
-| Active Phase | `P06-05` — Match-state sim + event log |
+| Active Plan | `P07` — Submission |
+| Active Phase | `P07-01` — Demo path + README |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D21` |
-| Last Completed Phase | `P06-04` |
-| Last Commit SHA | `8200548` |
-| Next Directive ID | `D22` |
+| Active Directive | `D22` |
+| Last Completed Phase | `P06-05` |
+| Last Commit SHA | `4d2cc59` |
+| Next Directive ID | `D23` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T10:25Z |
+| Last Updated At | 2026-05-28T10:40Z |
 
 ## Mastermind Note — P04-04 skipped
 

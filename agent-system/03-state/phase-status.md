@@ -59,14 +59,14 @@
 | P06-01 | Next.js + wallet + network | DONE | 2026-05-28 | Mastermind accepted; frontend shell bootstrapped with Next.js, TypeScript, Tailwind, wagmi/viem, X Layer badge, deployment manifest display, build/dev validation, and screenshot. |
 | P06-02 | Faucet + passport UI | DONE | 2026-05-28 | Mastermind accepted after D18 fix; hook contribution read now calls contributions(address,bytes32). |
 | P06-03 | Leaderboard + team cards | DONE | 2026-05-28 | Mastermind accepted after D20 fix; live leaderboard and team cards added with scores, fans, match states, active fees, 5-second polling, build/dev validation, screenshot, and match-state color fix. |
-| P06-04 | Swap + LP panels | AWAITING_REVIEW | 2026-05-28 | Swap and liquidity panels added with helper ABI, pool utilities, allowance/approve flows, helper calls, build/dev validation, and screenshots. |
-| P06-05 | Match-state sim + event log | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D22. |
+| P06-04 | Swap + LP panels | DONE | 2026-05-28 | Mastermind accepted; swap and liquidity panels added with helper ABI, pool utilities, allowance/approve flows, helper calls, build/dev validation, and screenshots. |
+| P06-05 | Match-state sim + event log | AWAITING_REVIEW | 2026-05-28 | Match-state simulator, bounded event log, contract proof panel, ABI event extensions, build/dev validation, and screenshots added. |
 
 ## Plan 07 — Submission
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P07-01 | Demo path + README | PENDING | — | |
+| P07-01 | Demo path + README | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D23. |
 | P07-02 | X account + demo video | PENDING | — | |
 | P07-03 | Final submission form | PENDING | — | |
 
@@ -79,6 +79,6 @@
 | P03 | 2 | 2 | 0 |
 | P04 | 4 | 3 + 1 skipped | 0 |
 | P05 | 3 | 3 | 0 |
-| P06 | 5 | 4 | 1 |
+| P06 | 5 | 5 | 0 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **17 + 1 skipped** | **4** |
+| **Total** | **22** | **18 + 1 skipped** | **3** |
