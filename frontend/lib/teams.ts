@@ -9,6 +9,8 @@ export type Team = {
   teamId: Hex;
   token: Address;
   poolId: Hex;
+  currency0: Address;
+  currency1: Address;
 };
 
 const flagBySymbol: Record<TeamSymbol, string> = {
@@ -25,6 +27,8 @@ export const teams = deployments.teams.map((team) => ({
   teamId: team.teamId,
   token: team.token,
   poolId: team.poolId,
+  currency0: team.currency0,
+  currency1: team.currency1,
 })) satisfies Team[];
 
 export const getTeamById = (teamId?: string) => teams.find((team) => team.teamId === teamId);

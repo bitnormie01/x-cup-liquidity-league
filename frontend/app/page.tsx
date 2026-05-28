@@ -1,16 +1,18 @@
 import { FaucetPanel } from '@/components/FaucetPanel';
 import { Leaderboard } from '@/components/Leaderboard';
+import { LiquidityPanel } from '@/components/LiquidityPanel';
 import { NetworkBadge } from '@/components/NetworkBadge';
 import { PassportCard } from '@/components/PassportCard';
+import { SwapPanel } from '@/components/SwapPanel';
 import { WalletButton } from '@/components/WalletButton';
 import { xLayerExplorerUrl } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 
 const placeholders = [
   {
-    title: 'Swap + Liquidity Support',
-    phase: 'P06-04',
-    detail: 'Judge-facing swap and LP flows against the deployed pools.',
+    title: 'Match-State Simulator + Event Log',
+    phase: 'P06-05',
+    detail: 'Admin match-state controls and recent league events.',
   },
 ];
 
@@ -89,6 +91,11 @@ export default function Home() {
         </section>
 
         <Leaderboard />
+
+        <section className="grid gap-4 xl:grid-cols-2">
+          <SwapPanel />
+          <LiquidityPanel />
+        </section>
 
         <section className="grid gap-4">
           {placeholders.map((item) => (
