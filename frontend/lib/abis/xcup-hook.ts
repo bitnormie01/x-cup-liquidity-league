@@ -1,7 +1,7 @@
 export const xcupHookAbi = [
   {
     type: 'function',
-    name: 'getUserContribution',
+    name: 'contributions',
     stateMutability: 'view',
     inputs: [
       { name: 'user', type: 'address' },

@@ -86,7 +86,7 @@ export function PassportCard() {
   } = useReadContract({
     address: deployments.core.hook,
     abi: xcupHookAbi,
-    functionName: 'getUserContribution',
+    functionName: 'contributions',
     args: [address ?? '0x0000000000000000000000000000000000000000', passportTeamId ?? selectedTeam.teamId],
     query: {
       enabled: readsEnabled && Boolean(passportTeamId),
