@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P06` — Frontend |
-| Active Phase | `P06-03` — Leaderboard + team cards |
+| Active Phase | `P06-04` — Swap + LP panels |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D18` |
-| Last Completed Phase | `P06-02` |
-| Last Commit SHA | `9d9ecd9` |
-| Next Directive ID | `D19` |
+| Active Directive | `D19` |
+| Last Completed Phase | `P06-03` |
+| Last Commit SHA | `b0cc836` |
+| Next Directive ID | `D20` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T09:30Z |
+| Last Updated At | 2026-05-28T09:49Z |
 
 ## Mastermind Note — P04-04 skipped
 
