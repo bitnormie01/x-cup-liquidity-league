@@ -48,8 +48,8 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P05-01 | Deploy scripts | AWAITING_REVIEW | 2026-05-28 | Executor completed deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests; awaiting Mastermind review. |
-| P05-02 | Pool creation + seed liquidity | PENDING | — | |
+| P05-01 | Deploy scripts | DONE | 2026-05-28 | Mastermind accepted; deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests verified. |
+| P05-02 | Pool creation + seed liquidity | AWAITING_REVIEW | 2026-05-28 | Executor completed pool creation, registry registration, seed liquidity, anvil E2E, one post-seed swap, and 61/61 tests; awaiting Mastermind review. |
 | P05-03 | Testnet deploy + verify | PENDING | — | |
 
 ## Plan 06 — Frontend
@@ -78,7 +78,7 @@
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
 | P04 | 4 | 3 + 1 skipped | 0 |
-| P05 | 3 | 1 | 2 |
+| P05 | 3 | 2 | 1 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **11 + 1 skipped** | **10** |
+| **Total** | **22** | **12 + 1 skipped** | **9** |
