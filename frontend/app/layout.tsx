@@ -19,6 +19,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'X Cup Liquidity League',
   description: 'World Cup fan battles powered by Uniswap v4 Hooks on X Layer',
+  icons: {
+    icon: '/brand/xcl-logo.svg',
+    shortcut: '/brand/xcl-logo.svg',
+    apple: '/brand/xcl-logo.svg',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
