@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P06` — Frontend |
-| Active Phase | `P06-01` — Next.js + wallet + network |
+| Active Phase | `P06-02` — Faucet + passport UI |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D15` |
-| Last Completed Phase | `P05-03` |
-| Last Commit SHA | `30be7ee` |
-| Next Directive ID | `D16` |
+| Active Directive | `D16` |
+| Last Completed Phase | `P06-01` |
+| Last Commit SHA | `567607e` |
+| Next Directive ID | `D17` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T07:55Z |
+| Last Updated At | 2026-05-28T08:23Z |
 
 ## Mastermind Note — P04-04 skipped
 

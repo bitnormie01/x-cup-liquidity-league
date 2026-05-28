@@ -50,14 +50,14 @@
 |---|---|---|---|---|
 | P05-01 | Deploy scripts | DONE | 2026-05-28 | Mastermind accepted; deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests verified. |
 | P05-02 | Pool creation + seed liquidity | DONE | 2026-05-28 | Mastermind accepted; pool creation, registry registration, seed liquidity, anvil E2E, one post-seed swap, and 61/61 tests verified. |
-| P05-03 | Testnet deploy + verify | AWAITING_REVIEW | 2026-05-28 | X Layer testnet stack deployed with project-owned PoolManager; manifests committed, smoke swap verified, 61/61 tests pass. |
+| P05-03 | Testnet deploy + verify | DONE | 2026-05-28 | Mastermind accepted; X Layer testnet stack deployed with project-owned PoolManager, manifests committed, smoke swap verified, 61/61 tests pass. |
 
 ## Plan 06 — Frontend
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P06-01 | Next.js + wallet + network | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D16. |
-| P06-02 | Faucet + passport UI | PENDING | — | |
+| P06-01 | Next.js + wallet + network | AWAITING_REVIEW | 2026-05-28 | Frontend shell bootstrapped with Next.js, TypeScript, Tailwind, wagmi/viem, X Layer badge, deployment manifest display, build/dev validation, and screenshot. |
+| P06-02 | Faucet + passport UI | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D17. |
 | P06-03 | Leaderboard + team cards | PENDING | — | |
 | P06-04 | Swap + LP panels | PENDING | — | |
 | P06-05 | Match-state sim + event log | PENDING | — | |
@@ -79,6 +79,6 @@
 | P03 | 2 | 2 | 0 |
 | P04 | 4 | 3 + 1 skipped | 0 |
 | P05 | 3 | 3 | 0 |
-| P06 | 5 | 0 | 5 |
+| P06 | 5 | 1 | 4 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **13 + 1 skipped** | **8** |
+| **Total** | **22** | **14 + 1 skipped** | **7** |
