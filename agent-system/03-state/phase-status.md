@@ -50,13 +50,13 @@
 |---|---|---|---|---|
 | P05-01 | Deploy scripts | DONE | 2026-05-28 | Mastermind accepted; deploy scripts, 14-bit hook salt mining, anvil pre-flight, and 61/61 tests verified. |
 | P05-02 | Pool creation + seed liquidity | DONE | 2026-05-28 | Mastermind accepted; pool creation, registry registration, seed liquidity, anvil E2E, one post-seed swap, and 61/61 tests verified. |
-| P05-03 | Testnet deploy + verify | BLOCKED | — | Deployer 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B has 0 X Layer testnet OKB; stopped before broadcasts. |
+| P05-03 | Testnet deploy + verify | AWAITING_REVIEW | 2026-05-28 | X Layer testnet stack deployed with project-owned PoolManager; manifests committed, smoke swap verified, 61/61 tests pass. |
 
 ## Plan 06 — Frontend
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P06-01 | Next.js + wallet + network | PENDING | — | |
+| P06-01 | Next.js + wallet + network | AWAITING_DIRECTIVE | — | Awaiting Mastermind directive D16. |
 | P06-02 | Faucet + passport UI | PENDING | — | |
 | P06-03 | Leaderboard + team cards | PENDING | — | |
 | P06-04 | Swap + LP panels | PENDING | — | |
@@ -78,7 +78,7 @@
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
 | P04 | 4 | 3 + 1 skipped | 0 |
-| P05 | 3 | 2 | 1 |
+| P05 | 3 | 3 | 0 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **12 + 1 skipped** | **9** |
+| **Total** | **22** | **13 + 1 skipped** | **8** |
