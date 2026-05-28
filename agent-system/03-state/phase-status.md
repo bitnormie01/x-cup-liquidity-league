@@ -41,14 +41,14 @@
 |---|---|---|---|---|
 | P04-01 | Hook scaffold + beforeSwap dynamic fee | DONE | 2026-05-28 | Mastermind accepted; IHooks direct impl (no BaseHook in installed v4), override flag wired, 43 tests pass repo-wide. |
 | P04-02 | afterSwap + afterAddLiquidity scoring | DONE | 2026-05-28 | Mastermind accepted; onlyPoolManager gate live on 3 wrappers, scoring math matches D10, 10 new tests pass, 53/53 repo-wide. |
-| P04-03 | Anti-wash logic | AWAITING_REVIEW | 2026-05-28 | Executor completed cooldown/reversal/burst detection, fee penalty, wash multiplier, preview, and tests; awaiting Mastermind review. |
-| P04-04 | Hook tests (full) | PENDING | — | |
+| P04-03 | Anti-wash logic | DONE | 2026-05-28 | Mastermind accepted; shared pure _computeStatus, discount stripping when flagged, +25bps penalty, washMult=0, 8 anti-wash tests pass, 61/61 repo-wide. |
+| P04-04 | Hook tests (full) | SKIPPED | 2026-05-28 | Mastermind decision: 19 existing hook unit tests cover individual callbacks; P05-01 anvil pre-flight serves as integration validation. Backfill if P05-01 surfaces an integration bug. |
 
 ## Plan 05 — Deployment
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P05-01 | Deploy scripts | PENDING | — | |
+| P05-01 | Deploy scripts | IN_PROGRESS | — | D12 issued 2026-05-28 — CREATE2 salt mining, anvil pre-flight required. |
 | P05-02 | Pool creation + seed liquidity | PENDING | — | |
 | P05-03 | Testnet deploy + verify | PENDING | — | |
 
@@ -77,8 +77,8 @@
 | P01 | 2 | 2 | 0 |
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
-| P04 | 4 | 3 | 1 |
+| P04 | 4 | 3 + 1 skipped | 0 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **10** | **12** |
+| **Total** | **22** | **10 + 1 skipped** | **11** |

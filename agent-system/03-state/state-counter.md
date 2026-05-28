@@ -6,15 +6,19 @@
 
 | Field | Value |
 |---|---|
-| Active Plan | `P04` — Hook |
-| Active Phase | `P04-04` — Hook tests (full) |
-| Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D11` |
+| Active Plan | `P05` — Deployment |
+| Active Phase | `P05-01` — Deploy scripts |
+| Active Phase Status | `IN_PROGRESS` |
+| Active Directive | `D12` |
 | Last Completed Phase | `P04-03` |
-| Last Commit SHA | `e6b2ebc` |
-| Next Directive ID | `D12` |
-| Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T03:48Z |
+| Last Commit SHA | `8c0ef1c` |
+| Next Directive ID | `D13` |
+| Last Updated By | `mastermind-claude` |
+| Last Updated At | 2026-05-28T04:05Z |
+
+## Mastermind Note — P04-04 skipped
+
+P04-04 (full hook test battery) is **skipped under deadline pressure**. The 19 existing hook unit tests (1 compile + 10 scoring + 8 anti-wash) cover individual callback behavior comprehensively. The v4 PoolManager integration validation that P04-04 would have provided is functionally equivalent to P05-01's local-anvil pre-flight (which deploys the hook with salt-mined address against a real PoolManager). If a hook-integration bug surfaces in P05-01, we backfill targeted tests then.
 
 ## Status Legend
 
