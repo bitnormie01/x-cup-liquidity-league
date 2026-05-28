@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P04` — Hook |
-| Active Phase | `P04-02` — afterSwap + afterAddLiquidity scoring |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase | `P04-03` — Anti-wash logic |
+| Active Phase Status | `AWAITING_DIRECTIVE` |
 | Active Directive | `D10` |
-| Last Completed Phase | `P04-01` |
-| Last Commit SHA | `ec81a50` |
+| Last Completed Phase | `P04-02` |
+| Last Commit SHA | `TBD` |
 | Next Directive ID | `D11` |
-| Last Updated By | `mastermind-claude` |
-| Last Updated At | 2026-05-28T03:35Z |
+| Last Updated By | `executor-codex` |
+| Last Updated At | 2026-05-28T03:34Z |
 
 ## Status Legend
 
