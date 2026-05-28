@@ -20,6 +20,7 @@ contract DeployCore is Script {
 
     struct CoreDeployments {
         address poolManager;
+        string poolManagerMode;
         address registry;
         address passport;
         address hook;
@@ -62,6 +63,7 @@ contract DeployCore is Script {
 
         CoreDeployments memory deployments = CoreDeployments({
             poolManager: address(poolManager),
+            poolManagerMode: _poolManagerMode(),
             registry: address(registry),
             passport: address(passport),
             hook: address(hook),
@@ -75,7 +77,8 @@ contract DeployCore is Script {
         if (poolManagerAddr != address(0)) {
             return IPoolManager(poolManagerAddr);
         }
-        if (block.chainid != 31337) {
+        bool deployOwnPoolManager = vm.envOr("DEPLOY_OWN_POOL_MANAGER", false);
+        if (block.chainid != 31337 && !deployOwnPoolManager) {
             revert PoolManagerAddressRequired();
         }
 
@@ -135,6 +138,14 @@ contract DeployCore is Script {
         return string.concat("../deployments/", vm.toString(block.chainid));
     }
 
+    function _poolManagerMode() internal view returns (string memory) {
+        if (vm.envOr("POOL_MANAGER_ADDRESS", address(0)) != address(0)) {
+            return "external";
+        }
+
+        return "project-owned";
+    }
+
     function _coreJson(CoreDeployments memory deployments, TokenTeam[] memory teams)
         internal
         view
@@ -147,6 +158,9 @@ contract DeployCore is Script {
             ",\n",
             '  "poolManager": "',
             vm.toString(deployments.poolManager),
+            '",\n',
+            '  "poolManagerMode": "',
+            deployments.poolManagerMode,
             '",\n',
             '  "registry": "',
             vm.toString(deployments.registry),
