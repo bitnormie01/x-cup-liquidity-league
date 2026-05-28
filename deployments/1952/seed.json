@@ -1,0 +1,10 @@
+{
+  "chainId": 1952,
+  "liquiditySeeder": "0x693c37af40d21c5c0B4b34151a234D69919F1407",
+  "teams": [
+    { "symbol": "BRA", "poolId": "0xac226e1ee3a5d5b56d33dbb8760019d5f2d59635bed752085d705ce2bece4380", "liquidityDelta": "1000000000000000000000", "fanTokenAmount": "999999999999999999946", "quoteTokenAmount": "999999999999999999946" },
+    { "symbol": "ARG", "poolId": "0xc59461cd61690d3b48635a550962c7f9491530eb4c181c435e51ba6c03c8f9cd", "liquidityDelta": "1000000000000000000000", "fanTokenAmount": "999999999999999999946", "quoteTokenAmount": "999999999999999999946" },
+    { "symbol": "FRA", "poolId": "0xa2a46908c90ebf39ed2f12938d0e29b5b3f4a94f09281ea9f99fc860368b65c8", "liquidityDelta": "1000000000000000000000", "fanTokenAmount": "999999999999999999946", "quoteTokenAmount": "999999999999999999946" },
+    { "symbol": "GER", "poolId": "0x1929af06898f12a50752e87f1e7bc370d77754f3006ec8ead85764ef4df808f6", "liquidityDelta": "1000000000000000000000", "fanTokenAmount": "999999999999999999946", "quoteTokenAmount": "999999999999999999946" }
+  ]
+}

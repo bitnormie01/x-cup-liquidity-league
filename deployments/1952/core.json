@@ -1,0 +1,15 @@
+{
+  "chainId": 1952,
+  "poolManager": "0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5",
+  "poolManagerMode": "project-owned",
+  "registry": "0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50",
+  "passport": "0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358",
+  "hook": "0xea906F6E7D63D96E4D6782b6260a7a11587144c0",
+  "hookSalt": "0x00000000000000000000000000000000000000000000000000000000000018e6",
+  "teams": [
+    { "symbol": "BRA", "teamId": "0x9530cfe659b81a1ad7e27fcf63cb7137f7ac9c7f5d9eb011dc41e30833adcfa0", "token": "0xC03713D4B186A2f762A6b301b8F805739a671bb3" },
+    { "symbol": "ARG", "teamId": "0x73423ff7bbf24f26662f84f1ab3d14334103a5250d07b587eef31eb0516f1f73", "token": "0x28b1F6d00177F6565310e9849aC1fe27FD6781d4" },
+    { "symbol": "FRA", "teamId": "0x57f0fc9aebf846ced766a4ca2d7e5dff056963a57812e5527eaa122e70d56445", "token": "0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB" },
+    { "symbol": "GER", "teamId": "0x766d6b724cbc7ec37adf1580586e50a99fe23f025d5ef912b262a03adba7ff34", "token": "0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32" }
+  ]
+}
