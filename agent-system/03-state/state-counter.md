@@ -9,12 +9,12 @@
 | Active Plan | `P05` — Deployment |
 | Active Phase | `P05-03` — Testnet deploy + verify |
 | Active Phase Status | `BLOCKED` |
-| Active Directive | `D14` |
+| Active Directive | `D15` |
 | Last Completed Phase | `P05-02` |
 | Last Commit SHA | `fd7034e` |
-| Next Directive ID | `D15` |
+| Next Directive ID | `D16` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T07:20Z |
+| Last Updated At | 2026-05-28T07:35Z |
 
 ## Mastermind Note — P04-04 skipped
 
@@ -31,7 +31,7 @@ P04-04 (full hook test battery) is **skipped under deadline pressure**. The 19 e
 
 ## Open Blockers
 
-- P05-03 blocked before broadcast: `contracts/.env` is missing, `XLAYER_TESTNET_RPC` is unset, and `DEPLOYER_PRIVATE_KEY` is unset, so the deployer address and X Layer testnet OKB balance cannot be checked.
+- P05-03 blocked before broadcast: deployer `0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B` has `0` X Layer testnet OKB.
 
 ## Notes
 

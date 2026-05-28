@@ -27,3 +27,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-28 04:13Z | P05-01 | DONE | 6d93f43 | Deployment scripts added with anvil pre-flight and hook salt mining verified
 2026-05-28 05:20Z | P05-02 | DONE | 20911ae | Dynamic-fee pools created, registered, seeded, and one local swap verified
 2026-05-28 07:20Z | P05-03 | BLOCKED | fd7034e | Testnet deployment blocked by missing RPC/private-key env before balance check
+2026-05-28 07:35Z | P05-03 | BLOCKED | fd7034e | Testnet deployment blocked by deployer having 0 OKB
