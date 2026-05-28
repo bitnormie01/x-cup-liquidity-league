@@ -8,13 +8,13 @@
 |---|---|
 | Active Plan | `P07` — Submission |
 | Active Phase | `P07-02` — X account + demo video |
-| Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D23` |
+| Active Phase Status | `PARTIAL` |
+| Active Directive | `D24` |
 | Last Completed Phase | `P07-01` |
-| Last Commit SHA | `de41da9` |
-| Next Directive ID | `D24` |
+| Last Commit SHA | `f48d447` |
+| Next Directive ID | `D25` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T12:48Z |
+| Last Updated At | 2026-05-28T13:01Z |
 
 ## Mastermind Note — P04-04 skipped
 
@@ -26,6 +26,7 @@ P04-04 (full hook test battery) is **skipped under deadline pressure**. The 19 e
 - `IN_PROGRESS` — directive issued, Executor working.
 - `AWAITING_REVIEW` — Executor pushed report, Mastermind hasn't reviewed.
 - `BLOCKED` — Executor reported BLOCKED, awaits new directive.
+- `PARTIAL` — deliverables were prepared, but external human action or missing URL prevents completion.
 - `DONE` — Mastermind reviewed and accepted.
 - `AWAITING_DIRECTIVE` — phase finished, Mastermind hasn't issued the next one yet.
 
