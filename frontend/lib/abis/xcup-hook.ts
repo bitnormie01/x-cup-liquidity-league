@@ -1,6 +1,31 @@
 export const xcupHookAbi = [
   {
     type: 'function',
+    name: 'getTeamScore',
+    stateMutability: 'view',
+    inputs: [{ name: 'teamId', type: 'bytes32' }],
+    outputs: [
+      {
+        name: '',
+        type: 'tuple',
+        components: [
+          { name: 'swapPoints', type: 'uint256' },
+          { name: 'lpPoints', type: 'uint256' },
+          { name: 'totalPoints', type: 'uint256' },
+          { name: 'lastUpdatedAt', type: 'uint64' },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'function',
+    name: 'feeForState',
+    stateMutability: 'view',
+    inputs: [{ name: 'state', type: 'uint8' }],
+    outputs: [{ name: '', type: 'uint24' }],
+  },
+  {
+    type: 'function',
     name: 'contributions',
     stateMutability: 'view',
     inputs: [

@@ -1,4 +1,5 @@
 import { FaucetPanel } from '@/components/FaucetPanel';
+import { Leaderboard } from '@/components/Leaderboard';
 import { NetworkBadge } from '@/components/NetworkBadge';
 import { PassportCard } from '@/components/PassportCard';
 import { WalletButton } from '@/components/WalletButton';
@@ -6,11 +7,6 @@ import { xLayerExplorerUrl } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 
 const placeholders = [
-  {
-    title: 'Leaderboard + Team Cards',
-    phase: 'P06-03',
-    detail: 'Live team scores, fans, match state, and active fee views.',
-  },
   {
     title: 'Swap + Liquidity Support',
     phase: 'P06-04',
@@ -92,7 +88,9 @@ export default function Home() {
           <PassportCard />
         </section>
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <Leaderboard />
+
+        <section className="grid gap-4">
           {placeholders.map((item) => (
             <article key={item.title} className="rounded-lg border border-line bg-white p-5 shadow-panel">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-pitch text-sm font-semibold text-white">
