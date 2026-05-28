@@ -1,14 +1,11 @@
+import { FaucetPanel } from '@/components/FaucetPanel';
 import { NetworkBadge } from '@/components/NetworkBadge';
+import { PassportCard } from '@/components/PassportCard';
 import { WalletButton } from '@/components/WalletButton';
 import { xLayerExplorerUrl } from '@/lib/chains';
 import { deployments, shortAddress } from '@/lib/deployments';
 
 const placeholders = [
-  {
-    title: 'Faucet + Passport',
-    phase: 'P06-02',
-    detail: 'Token faucets and supporter passport minting land next.',
-  },
   {
     title: 'Leaderboard + Team Cards',
     phase: 'P06-03',
@@ -90,7 +87,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="grid gap-4 md:grid-cols-3">
+        <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+          <FaucetPanel />
+          <PassportCard />
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-2">
           {placeholders.map((item) => (
             <article key={item.title} className="rounded-lg border border-line bg-white p-5 shadow-panel">
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-pitch text-sm font-semibold text-white">
