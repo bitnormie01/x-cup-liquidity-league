@@ -39,8 +39,8 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P04-01 | Hook scaffold + beforeSwap dynamic fee | AWAITING_REVIEW | 2026-05-28 | Executor completed hook scaffold and dynamic fee callback; awaiting Mastermind review. |
-| P04-02 | afterSwap + afterAddLiquidity scoring | PENDING | — | |
+| P04-01 | Hook scaffold + beforeSwap dynamic fee | DONE | 2026-05-28 | Mastermind accepted; IHooks direct impl (no BaseHook in installed v4), override flag wired, 43 tests pass repo-wide. |
+| P04-02 | afterSwap + afterAddLiquidity scoring | IN_PROGRESS | — | D10 issued 2026-05-28 — adds scoring storage + PoolManager-only gate. |
 | P04-03 | Anti-wash logic | PENDING | — | |
 | P04-04 | Hook tests (full) | PENDING | — | |
 
