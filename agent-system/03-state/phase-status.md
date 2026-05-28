@@ -39,7 +39,7 @@
 
 | Phase | Title | Status | Completed | Notes |
 |---|---|---|---|---|
-| P04-01 | Hook scaffold + beforeSwap dynamic fee | IN_PROGRESS | — | D9 issued 2026-05-28 — Hook is the core product. |
+| P04-01 | Hook scaffold + beforeSwap dynamic fee | AWAITING_REVIEW | 2026-05-28 | Executor completed hook scaffold and dynamic fee callback; awaiting Mastermind review. |
 | P04-02 | afterSwap + afterAddLiquidity scoring | PENDING | — | |
 | P04-03 | Anti-wash logic | PENDING | — | |
 | P04-04 | Hook tests (full) | PENDING | — | |
@@ -77,8 +77,8 @@
 | P01 | 2 | 2 | 0 |
 | P02 | 3 | 3 | 0 |
 | P03 | 2 | 2 | 0 |
-| P04 | 4 | 0 | 4 |
+| P04 | 4 | 1 | 3 |
 | P05 | 3 | 0 | 3 |
 | P06 | 5 | 0 | 5 |
 | P07 | 3 | 0 | 3 |
-| **Total** | **22** | **7** | **15** |
+| **Total** | **22** | **8** | **14** |

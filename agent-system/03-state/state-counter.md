@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P04` — Hook |
-| Active Phase | `P04-01` — Hook scaffold + beforeSwap dynamic fee |
-| Active Phase Status | `IN_PROGRESS` |
+| Active Phase | `P04-02` — afterSwap + afterAddLiquidity scoring |
+| Active Phase Status | `AWAITING_DIRECTIVE` |
 | Active Directive | `D9` |
-| Last Completed Phase | `P03-02` |
-| Last Commit SHA | `760c270` |
+| Last Completed Phase | `P04-01` |
+| Last Commit SHA | `TBD` |
 | Next Directive ID | `D10` |
-| Last Updated By | `mastermind-claude` |
-| Last Updated At | 2026-05-28T00:00Z |
+| Last Updated By | `executor-codex` |
+| Last Updated At | 2026-05-28T03:07Z |
 
 ## Status Legend
 
