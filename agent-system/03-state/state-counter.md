@@ -7,14 +7,14 @@
 | Field | Value |
 |---|---|
 | Active Plan | `P07` — Submission |
-| Active Phase | `P07-01` — Demo path + README |
+| Active Phase | `P07-02` — X account + demo video |
 | Active Phase Status | `AWAITING_DIRECTIVE` |
-| Active Directive | `D22` |
-| Last Completed Phase | `P06-05` |
-| Last Commit SHA | `4d2cc59` |
-| Next Directive ID | `D23` |
+| Active Directive | `D23` |
+| Last Completed Phase | `P07-01` |
+| Last Commit SHA | `de41da9` |
+| Next Directive ID | `D24` |
 | Last Updated By | `executor-codex` |
-| Last Updated At | 2026-05-28T10:40Z |
+| Last Updated At | 2026-05-28T12:48Z |
 
 ## Mastermind Note — P04-04 skipped
 

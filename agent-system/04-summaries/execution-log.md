@@ -36,3 +36,4 @@ YYYY-MM-DD HH:MMZ | <phase-id> | <status> | <commit-sha-short> | <one-line-summa
 2026-05-28 10:05Z | P06-03 | DONE | fd7922f | Match-state color mapping fixed per D20
 2026-05-28 10:25Z | P06-04 | DONE | 8200548 | Swap and liquidity panels added with helper approve/call flows and screenshots
 2026-05-28 10:40Z | P06-05 | DONE | 4d2cc59 | Match-state simulator, event log, and contract proof panels added
+2026-05-28 12:48Z | P07-01 | DONE | de41da9 | DEMO.md and submission-ready README added
