@@ -139,6 +139,6 @@ Do not commit private keys, `.env` files, or local `deployments/31337/` artifact
 
 ## Submission Links
 
-- Demo video: TBD
+- Demo video: Soon
 - Frontend: https://x-cup-liquidity-league.vercel.app/
 - X post: https://x.com/XCupLeague/status/2060081522351427624?s=20
