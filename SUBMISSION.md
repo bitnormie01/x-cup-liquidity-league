@@ -24,7 +24,7 @@ The submission media package is prepared, but external publishing is not complet
 - Add the demo video URL after recording/upload.
 - Add the published X post URL after posting from the project account.
 - Mention that contracts are deployed on X Layer testnet and the README contains the full address table and proof links.
-- Mention `CONTRACT_PROOF.md` for live bytecode checks, registry/pool reads, OKLink links, and source-verification commands.
+- Mention `CONTRACT_PROOF.md` for live bytecode checks, registry/pool reads, OKLink links, and completed source-verification status.
 - Mention the project-owned PoolManager disclosure exactly as written in README if the form asks about deployed infrastructure.
 
 ## Human Actions Still Needed

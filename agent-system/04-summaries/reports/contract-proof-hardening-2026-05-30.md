@@ -54,7 +54,7 @@ Live reads confirmed:
 - Updated `README.md` to link the proof packet and clarify OKLink source-code publication status.
 - Updated `DEMO.md`, `submission/video-script.md`, and `submission/recording-checklist.md` so judges are not instructed to click the disabled browser Add Support path.
 - Updated `SUBMISSION.md` to point final form notes at `CONTRACT_PROOF.md`.
-- Updated `contracts/foundry.toml` and `contracts/.env.example` from the old OKX explorer placeholder to `OKLINK_API_KEY` and the OKLink verification plugin URL.
+- Updated `contracts/foundry.toml` and `contracts/.env.example` from the old OKX explorer placeholder to the OKLink verification plugin URL.
 
 ## Validation
 
@@ -73,7 +73,21 @@ PASS: 61 passed, 0 failed, 0 skipped
 
 ## Source Verification Status
 
-OKLink source publication is ready to run but was not submitted because no `OKLINK_API_KEY` is present in the active environment. The proof file now contains exact commands for all deployed source-verification targets once an API key is available.
+OKLink source publication was completed with Foundry using `--verifier oklink`, `--watch`, and the X Layer testnet OKLink plugin URL. The X Layer docs path did not require an API key.
+
+Verified contracts:
+
+- xUSD: `Pass - Verified`
+- BRA: `Pass - Verified`
+- ARG: `Pass - Verified`
+- FRA: `Pass - Verified`
+- GER: `Pass - Verified`
+- PoolManager: `Pass - Verified`
+- XCupLeagueRegistry: `Pass - Verified`
+- TeamPassport: `Pass - Verified`
+- XCupLiquidityLeagueHook: `Pass - Verified`
+- V4PoolActionHelper: `Pass - Verified`
+- HookCreate2Deployer: `Pass - Verified`
 
 Official references used:
 

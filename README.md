@@ -49,7 +49,7 @@ flowchart TD
 
 Explorer base: `https://www.oklink.com/x-layer-testnet`
 
-Judge-facing on-chain proof, live read results, and OKLink source-verification commands are in [CONTRACT_PROOF.md](CONTRACT_PROOF.md).
+Judge-facing on-chain proof, live read results, and completed OKLink source-verification status are in [CONTRACT_PROOF.md](CONTRACT_PROOF.md).
 
 | Artifact | Address / ID | Explorer |
 |---|---|---|
@@ -126,10 +126,9 @@ Do not commit private keys, `.env` files, or local `deployments/31337/` artifact
 - One Team Passport per wallet; no team switching in the MVP.
 - Project-owned PoolManager is used on X Layer testnet.
 - Browser Add Support is disabled in the final UX because wallet simulation can fail on the MVP liquidity-settlement path; seeded LP proof remains visible on-chain.
-- Explorer verification remains best-effort/pending.
 - Manual browser-wallet demo testing is still needed before final video recording.
 - Event log uses bounded recent-block polling because the public X Layer testnet RPC limits `eth_getLogs` ranges.
-- OKLink source-code publication is ready to submit but still requires an `OKLINK_API_KEY`; on-chain bytecode and live contract reads are documented in `CONTRACT_PROOF.md`.
+- OKLink source-code verification is complete for the deployed X Layer testnet contracts; on-chain bytecode and live contract reads are documented in `CONTRACT_PROOF.md`.
 
 ## Future Work
 
