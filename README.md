@@ -80,7 +80,7 @@ No canonical X Layer testnet Uniswap v4 PoolManager was confirmed during deploym
 
 ## Demo Script
 
-See [DEMO.md](DEMO.md) for the judge walkthrough. No hosted frontend URL exists yet; run locally at `http://127.0.0.1:3000`.
+See [DEMO.md](DEMO.md) for the judge walkthrough. Hosted frontend: https://x-cup-liquidity-league.vercel.app/ 
 
 ## Setup
 
@@ -135,9 +135,10 @@ Do not commit private keys, `.env` files, or local `deployments/31337/` artifact
 - Add a persistent event indexer for longer history.
 - Polish video flow and add a live hosted frontend URL.
 - Add more teams and tournament modes after the MVP.
+- Finally on mainnet
 
 ## Submission Links
 
 - Demo video: TBD
-- X post: TBD
-- Final form: TBD
+- Frontend: https://x-cup-liquidity-league.vercel.app/
+- X post: https://x.com/XCupLeague/status/2060081522351427624?s=20
