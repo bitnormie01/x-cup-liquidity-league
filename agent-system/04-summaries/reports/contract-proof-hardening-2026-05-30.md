@@ -73,7 +73,7 @@ PASS: 61 passed, 0 failed, 0 skipped
 
 ## Source Verification Status
 
-OKLink source publication is ready to run but was not submitted because no `OKLINK_API_KEY` is present in the active environment. The proof file now contains exact commands for the main verification targets once an API key is available.
+OKLink source publication is ready to run but was not submitted because no `OKLINK_API_KEY` is present in the active environment. The proof file now contains exact commands for all deployed source-verification targets once an API key is available.
 
 Official references used:
 

@@ -19,7 +19,7 @@ xlayer_mainnet = "${XLAYER_MAINNET_RPC}"
 # forge verify-contract <address> src/MyContract.sol:MyContract \
 #   --chain 1952 --verifier oklink \
 #   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-#   --api-key $OKLINK_API_KEY
+#   --verifier-api-key $OKLINK_API_KEY
 [etherscan]
 xlayer_testnet = { key = "${OKLINK_API_KEY}", url = "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET", chain = 1952 }
 xlayer_mainnet = { key = "${OKLINK_API_KEY}", url = "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER", chain = 196 }

@@ -99,9 +99,11 @@ All addresses below returned non-empty runtime bytecode from X Layer testnet.
 
 ## Source Verification Status
 
-Status: **ready to submit to OKLink, pending an `OKLINK_API_KEY` in the local environment.**
+Status: **not yet explorer-source-verified. Submission is blocked until an `OKLINK_API_KEY` is available in the local environment.**
 
-OKLink provides contract source verification and publishes source code after comparing compiled bytecode with on-chain bytecode. OKX/X Layer docs also document Foundry verification with `--verifier oklink` and the OKLink plugin endpoint.
+The deployed contracts were checked on-chain for runtime bytecode and live reads, but source-code publication on OKLink still needs to be submitted. OKLink provides contract source verification and publishes source code after comparing compiled bytecode with on-chain bytecode. OKX/X Layer docs also document Foundry verification with `--verifier oklink` and the OKLink plugin endpoint.
+
+Pool IDs are not standalone contracts and cannot be source-verified on OKLink. They are verified through `XCupLeagueRegistry.isRegisteredPool(poolId) == true` and the committed deployment manifests.
 
 Useful links:
 
@@ -127,7 +129,7 @@ forge verify-contract \
   --chain 1952 \
   --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   <address> <source-path>:<contract-name> \
   --constructor-args <abi-encoded-constructor-args> \
   --watch
@@ -141,44 +143,78 @@ Use `cast abi-encode` to produce constructor args.
 # xUSD
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0x89AD049BbeD753E9213970Ea7F0727f85825e262 src/DemoQuoteToken.sol:DemoQuoteToken \
   --constructor-args "$(cast abi-encode 'constructor(address)' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
 
-# BRA fan token example; repeat with ARG/FRA/GER names, symbols, and addresses.
+# BRA
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0xC03713D4B186A2f762A6b301b8F805739a671bb3 src/DemoFanToken.sol:DemoFanToken \
   --constructor-args "$(cast abi-encode 'constructor(string,string,address)' 'Brazil Fan Token' 'BRA' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
+
+# ARG
+forge verify-contract --chain 1952 --verifier oklink \
+  --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+  --verifier-api-key "$OKLINK_API_KEY" \
+  0x28b1F6d00177F6565310e9849aC1fe27FD6781d4 src/DemoFanToken.sol:DemoFanToken \
+  --constructor-args "$(cast abi-encode 'constructor(string,string,address)' 'Argentina Fan Token' 'ARG' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
+
+# FRA
+forge verify-contract --chain 1952 --verifier oklink \
+  --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+  --verifier-api-key "$OKLINK_API_KEY" \
+  0xf6A9f29Cac7F2e4353FE9378807014cCD32841EB src/DemoFanToken.sol:DemoFanToken \
+  --constructor-args "$(cast abi-encode 'constructor(string,string,address)' 'France Fan Token' 'FRA' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
+
+# GER
+forge verify-contract --chain 1952 --verifier oklink \
+  --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+  --verifier-api-key "$OKLINK_API_KEY" \
+  0x8Aaf86dBc2922409F32693290cb7b88D5F3DAA32 src/DemoFanToken.sol:DemoFanToken \
+  --constructor-args "$(cast abi-encode 'constructor(string,string,address)' 'Germany Fan Token' 'GER' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
+
+# PoolManager
+forge verify-contract --chain 1952 --verifier oklink \
+  --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+  --verifier-api-key "$OKLINK_API_KEY" \
+  0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5 lib/v4-core/src/PoolManager.sol:PoolManager \
+  --constructor-args "$(cast abi-encode 'constructor(address)' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
 
 # Registry
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50 src/XCupLeagueRegistry.sol:XCupLeagueRegistry \
   --constructor-args "$(cast abi-encode 'constructor(address)' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
 
 # Passport
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358 src/TeamPassport.sol:TeamPassport \
   --constructor-args "$(cast abi-encode 'constructor(address)' 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
 
 # Hook
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0xea906F6E7D63D96E4D6782b6260a7a11587144c0 src/XCupLiquidityLeagueHook.sol:XCupLiquidityLeagueHook \
   --constructor-args "$(cast abi-encode 'constructor(address,address,address,address)' 0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5 0x5a1F521cAbc5b3b84518593C3EE09b7F978c2E50 0xaBf3AB75ac2B8d54E005C97e0f63fbeB82258358 0xE1Cc29641C37D2C61eBBCee22A5ffa70aaCbD67B)" --watch
 
 # Helper
 forge verify-contract --chain 1952 --verifier oklink \
   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
-  --api-key "$OKLINK_API_KEY" \
+  --verifier-api-key "$OKLINK_API_KEY" \
   0x693c37af40d21c5c0B4b34151a234D69919F1407 script/utils/V4PoolActionHelper.sol:V4PoolActionHelper \
   --constructor-args "$(cast abi-encode 'constructor(address)' 0x89EB7997ec0A7862ae25bAf44302cf2ac1554bD5)" --watch
+
+# HookCreate2Deployer
+forge verify-contract --chain 1952 --verifier oklink \
+  --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+  --verifier-api-key "$OKLINK_API_KEY" \
+  0x7d887404e350df334d903498f39ab40423633d62 script/utils/HookCreate2Deployer.sol:HookCreate2Deployer --watch
 ```
 
 ## Integrity Notes
