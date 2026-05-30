@@ -2,7 +2,7 @@
 
 World Cup-style fan battles powered by Uniswap v4 hooks on X Layer testnet.
 
-X Cup Liquidity League turns pool activity into live team support. Judges can claim demo tokens, mint a soulbound team passport, swap fan tokens, add liquidity support, change match states from an admin panel, and watch scores, fees, and contract events update in one frontend. It is a demo game mechanic, not betting, wagering, or a prediction market.
+X Cup Liquidity League turns pool activity into live team support. Judges can claim demo tokens, mint a soulbound team passport, swap fan tokens, inspect seeded liquidity support, change match states from an admin panel, and watch scores, fees, proof, and contract events update in one frontend. It is a demo game mechanic, not betting, wagering, or a prediction market.
 
 ## Screenshots
 
@@ -48,6 +48,8 @@ flowchart TD
 ## X Layer Testnet Deployment
 
 Explorer base: `https://www.oklink.com/x-layer-testnet`
+
+Judge-facing on-chain proof, live read results, and OKLink source-verification commands are in [CONTRACT_PROOF.md](CONTRACT_PROOF.md).
 
 | Artifact | Address / ID | Explorer |
 |---|---|---|
@@ -127,6 +129,7 @@ Do not commit private keys, `.env` files, or local `deployments/31337/` artifact
 - Explorer verification remains best-effort/pending.
 - Manual browser-wallet demo testing is still needed before final video recording.
 - Event log uses bounded recent-block polling because the public X Layer testnet RPC limits `eth_getLogs` ranges.
+- OKLink source-code publication is ready to submit but still requires an `OKLINK_API_KEY`; on-chain bytecode and live contract reads are documented in `CONTRACT_PROOF.md`.
 
 ## Future Work
 

@@ -20,11 +20,11 @@ pnpm dev --hostname 127.0.0.1 --port 3000
 
 ### 0:00-0:10 — Repo and README proof
 
-Visual: GitHub repo or local README at the project title, screenshots, architecture, and deployment table.
+Visual: GitHub repo or local README at the project title, screenshots, architecture, deployment table, and `CONTRACT_PROOF.md`.
 
 Caption/voice-over:
 
-> This is X Cup Liquidity League: a World Cup-style fan battle built on X Layer with Uniswap v4 hooks. The repo includes the demo walkthrough, deployed addresses, screenshots, and contract proof.
+> This is X Cup Liquidity League: a World Cup-style fan battle built on X Layer with Uniswap v4 hooks. The repo includes the demo walkthrough, deployed addresses, screenshots, contract proof, and live read checks.
 
 ### 0:10-0:20 — Contract proof panel
 
@@ -74,13 +74,13 @@ Caption/voice-over:
 
 > Swap xUSD into BRA through the deployed V4PoolActionHelper. The swap routes through PoolManager and the hook awards swap points.
 
-### 1:20-1:35 — Liquidity support panel action
+### 1:20-1:35 — Add Support proof
 
-Visual: Liquidity panel; add support to ARG with matching xUSD/team-token amounts.
+Visual: Add Support panel for ARG, then Live League LP points and `CONTRACT_PROOF.md`.
 
 Caption/voice-over:
 
-> Add demo full-range liquidity support to ARG. The hook awards LP points through `afterAddLiquidity`.
+> Browser Add Support is paused because wallet simulation can fail on the MVP liquidity-settlement path. The deployed pools were seeded on testnet, LP points are live, and the proof file documents the on-chain reads.
 
 ### 1:35-1:50 — Admin match-state update
 
@@ -118,7 +118,8 @@ Caption/voice-over:
 
 If browser transactions are slow during recording:
 
-- Show the P05-03 smoke-swap proof in `agent-system/04-summaries/reports/P05-03.md`.
+- Show the P05-03 smoke-swap proof in `agent-system/04-summaries/reports/P05-03-v3.md`.
+- Show `CONTRACT_PROOF.md` for bytecode, registry, pool, hook, and OKLink proof.
 - Show the live leaderboard and event log panels.
 - State clearly: "Full frontend write paths are implemented; this clip is using already-deployed testnet state while wallet confirmations are pending."
 - Do not claim a pending transaction succeeded until the wallet receipt confirms.

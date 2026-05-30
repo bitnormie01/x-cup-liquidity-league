@@ -14,7 +14,12 @@ fs_permissions = [{ access = "read-write", path = "../deployments" }]
 xlayer_testnet = "${XLAYER_TESTNET_RPC}"
 xlayer_mainnet = "${XLAYER_MAINNET_RPC}"
 
-# TODO(P05): confirm OKX exposes Etherscan-compatible verification endpoints before deployment verification.
+# OKLink supports Foundry verification through its oklink verifier plugin endpoint.
+# Usage example:
+# forge verify-contract <address> src/MyContract.sol:MyContract \
+#   --chain 1952 --verifier oklink \
+#   --verifier-url https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET \
+#   --api-key $OKLINK_API_KEY
 [etherscan]
-xlayer_testnet = { key = "${OKX_EXPLORER_API_KEY}", url = "https://www.okx.com/web3/explorer/xlayer-test/api", chain = 1952 }
-xlayer_mainnet = { key = "${OKX_EXPLORER_API_KEY}", url = "https://www.okx.com/web3/explorer/xlayer/api", chain = 196 }
+xlayer_testnet = { key = "${OKLINK_API_KEY}", url = "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER_TESTNET", chain = 1952 }
+xlayer_mainnet = { key = "${OKLINK_API_KEY}", url = "https://www.oklink.com/api/v5/explorer/contract/verify-source-code-plugin/XLAYER", chain = 196 }

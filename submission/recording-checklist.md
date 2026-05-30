@@ -28,11 +28,12 @@ pnpm dev --hostname 127.0.0.1 --port 3000
 - [ ] Claim BRA or another fan token if needed.
 - [ ] Mint BRA Team Passport.
 - [ ] Swap xUSD -> BRA.
-- [ ] Add liquidity support to ARG.
+- [ ] Show the disabled Add Support panel for ARG and explain seeded LP proof honestly.
 - [ ] Trigger BRA GOAL_SHOCK from the admin panel using controller/owner wallet.
-- [ ] Watch leaderboard update after swap/liquidity.
+- [ ] Watch leaderboard update after swap and show existing LP points.
 - [ ] Watch Event Log for hook/registry events.
 - [ ] Show Contract Proof panel.
+- [ ] Show `CONTRACT_PROOF.md` if judges need source/bytecode verification details.
 
 ## Recording Quality
 
